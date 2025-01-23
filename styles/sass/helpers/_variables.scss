@@ -1,0 +1,27 @@
+$font-family: "Chakra Petch", sans-serif;
+
+// Main colors
+$color-purple: #CA6AEB;
+$color-blue: #19B5F1;
+$color-gradient: linear-gradient(to right, $color-blue 0%, $color-purple 100%);
+
+// Secondary colors
+$color-greeb: #00C566;
+$color-red: #FF4747;
+$color-yellow: #FACC15;
+
+// Typography colors
+$greyscale-black-100: #18181b;
+$greyscale-black-80: #252532;
+$greyscale-grey-1: #b0b0b2;
+$greyscale-grey-2: #d1d1d1;
+$greyscale-white: #fff;
+
+// Other
+$border: 1px solid linear-gradient(to bottom left, #fff 0%, transparent 100%);
+$transition-duration: 0.3s;
+
+// css variables
+:root {
+  --font-size-base: 16px;
+}

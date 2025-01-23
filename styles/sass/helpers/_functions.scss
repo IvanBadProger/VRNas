@@ -1,0 +1,43 @@
+@use 'sass:math';
+
+@function rem($pixel) {
+  /* 
+  Функция преобразовывающая пиксели в rem единицы. 
+
+  Принимает единственный аргумент значение в пикселях (без указания единиц измерения) и возвращает это же значение в rem единицах.
+  Пример: rem(16) вернет 1rem
+  */
+
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16)+rem;
+  }
+
+  @else {
+    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.'
+  }
+}
+
+;
+
+@function fluid($max: 100, $min: 10) {
+  /* 
+  Функция создающий "жидкое" значение.
+
+  Принимает 2 аргумента максимальное и минимальное значения элемента по макету (например, на ПК версии и на мобильной) и возвращает усреднённое исходя из ширины экрана 
+  */
+
+  $maxViewportWidth: 1600;
+  $minViewportWidth: 390;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @return clamp(#{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem});
+}

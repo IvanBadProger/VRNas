@@ -1,0 +1,88 @@
+// Протестить
+@mixin hover($hasActiveEffectOnMobile: true) {
+  /* 
+  Миксин решающий проблему "залипания" на экранах не имеющий hover эффекта.
+  */
+
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if ($hasActiveEffectOnMobile) {
+    @media (any-hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+
+  @if not $size {
+    @error "Не указан размер фигуры. Пожалуйста передайте в аргумент миксина желаемое значение";
+  }
+}
+
+@mixin circle ($size) {
+  @include square($size);
+  border-radius: 50%;
+}
+
+// Протестировать
+@mixin abs-center($direction: null) {
+  /* 
+  Миксин выравнивающий элемент по центру абсолютным позиционированием.
+
+  Принимает не обязательный аргумент direction, указывающий направление выравнивания (ось x или y(
+  */
+
+  position: absolute;
+
+  @if $direction ==x {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @else if $direction ==y {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @else {
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+  }
+}
+
+$breakpoints: (
+  laptop-large: 1440,
+  laptop: 1280,
+  tablet: 1000,
+  mobile: 750,
+);
+
+@mixin media($breakpoint) {
+  /* 
+  Миксин помогаюищй писать медиа запросы под разные экраны.
+
+  Пример: @include media(laptop) { стили } - на выходе получаем адаптивные стили для ноутбука
+  */
+
+  $max-width: map-get($breakpoints, $breakpoint);
+
+  @if $max-width {
+    @media (max-width: #{$max-width}px) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Неизвестная брейкпоинт: #{$breakpoint}. Доступные брейкпоинты: mobile, tablet, laptop, laptop-large.";
+  }
+}
