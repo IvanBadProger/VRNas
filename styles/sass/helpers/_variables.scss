@@ -6,7 +6,7 @@ $color-blue: #19B5F1;
 $color-gradient: linear-gradient(to right, $color-blue 0%, $color-purple 100%);
 
 // Secondary colors
-$color-greeb: #00C566;
+$color-green: #00C566;
 $color-red: #FF4747;
 $color-yellow: #FACC15;
 
@@ -24,4 +24,11 @@ $transition-duration: 0.3s;
 // css variables
 :root {
   --font-size-base: 16px;
+  --container-width: 1440px;
+
+  @media (max-width > 1920px) {
+    & {
+      --container-width: 80vw;
+    }
+  }
 }

@@ -1,9 +1,19 @@
-// Протестить
+/// Миксин для решения проблемы "залипания" на экранах без hover эффекта.
+/// 
+/// Этот миксин создает две директивы медиа (если $hasActiveEffectOnMobile = true):
+/// - Первая директива применяется на экранах с hover эффектом (ПК, ноутбук).
+/// - Вторая директива применяется на экранах с тач эффектом (телефон, планшет).
+/// 
+/// @param {boolean} $hasActiveEffectOnMobile [true] - параметр, указывающий, будет ли эффект активен на устройствах без hover эффекта.
+/// @content [стили, которые должны быть применены к элементу]
+/// 
+/// @example
+/// .button {
+///   @include hover { 
+///     background-color: blue; 
+///   }
+/// }
 @mixin hover($hasActiveEffectOnMobile: true) {
-  /* 
-  Миксин решающий проблему "залипания" на экранах не имеющий hover эффекта.
-  */
-
   @media (any-hover: hover) {
     &:hover {
       @content;
@@ -19,28 +29,49 @@
   }
 }
 
+/// Задает элементу квадратные размеры.
+/// 
+/// @require @param {number} $size - значение стороны квадрата. Должен быть положительным числом.
+/// 
+/// @example
+/// .square-box {
+///   @include square(100px);
+/// }
 @mixin square($size) {
+  @if not $size {
+    @error "Не указан размер фигуры. Пожалуйста, передайте в аргумент миксина желаемое значение.";
+  }
+
+  @if $size < 0 {
+    @error "Размер не может быть отрицательным"
+  }
+
   width: $size;
   height: $size;
-
-  @if not $size {
-    @error "Не указан размер фигуры. Пожалуйста передайте в аргумент миксина желаемое значение";
-  }
 }
 
-@mixin circle ($size) {
+/// Задает элемент круглым.
+/// 
+/// @require @param {number} $size - размер круга. Должен быть положительным числом.
+/// 
+/// @example
+/// .circle-box {
+///   @include circle(50px);
+/// }
+@mixin circle($size) {
   @include square($size);
   border-radius: 50%;
 }
 
-// Протестировать
+/// Миксин, выравнивающий элемент по центру с помощью абсолютного позиционирования.
+/// 
+/// @param {x | y | null} $direction [null] - указывает направление выравнивания (ось x, y или по обеим осям, если null).
+/// 
+/// @example
+/// .centered {
+///   @include abs-center(null);
+/// }
 @mixin abs-center($direction: null) {
-  /* 
-  Миксин выравнивающий элемент по центру абсолютным позиционированием.
-
-  Принимает не обязательный аргумент direction, указывающий направление выравнивания (ось x или y(
-  */
-
   position: absolute;
 
   @if $direction ==x {
@@ -56,7 +87,7 @@
   @else {
     top: 50%;
     left: 50%;
-    translate: -50% -50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -67,13 +98,16 @@ $breakpoints: (
   mobile: 750,
 );
 
+/// Миксин для упрощенного написания медиа-запросов.
+/// 
+/// @require @param {mobile | tablet | laptop | laptop-large} $breakpoint - брейкпоинт, размер экрана, к которому применяются стили.
+/// @content [стили, которые должны быть применены к указанному брейкпоинту]
+/// 
+/// @example
+/// @include media(laptop) {
+///   font-size: 14px;
+/// }
 @mixin media($breakpoint) {
-  /* 
-  Миксин помогаюищй писать медиа запросы под разные экраны.
-
-  Пример: @include media(laptop) { стили } - на выходе получаем адаптивные стили для ноутбука
-  */
-
   $max-width: map-get($breakpoints, $breakpoint);
 
   @if $max-width {
@@ -83,6 +117,6 @@ $breakpoints: (
   }
 
   @else {
-    @error "Неизвестная брейкпоинт: #{$breakpoint}. Доступные брейкпоинты: mobile, tablet, laptop, laptop-large.";
+    @error "Неизвестный брейкпоинт: #{$breakpoint}. Доступные брейкпоинты: mobile, tablet, laptop, laptop-large.";
   }
 }
