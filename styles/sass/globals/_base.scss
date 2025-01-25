@@ -1,0 +1,35 @@
+@use '../helpers' as *;
+
+body {
+  background-color: $black-100;
+  color: $grey-2;
+  font-size: var(--font-size-base);
+}
+
+// Глянуть по поводу интерлиньяжа. Возможно он не стандартный
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $white;
+}
+
+.h2 {
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: $color-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.h3 {
+  font-weight: 600;
+  font-size: rem(48);
+  text-align: center;
+}

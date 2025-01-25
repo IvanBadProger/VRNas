@@ -1,0 +1,21 @@
+@use '../helpers' as *;
+
+.testimonial {
+  height: 100vh;
+  // Почему не работает min-height ?
+
+  &__main-image {
+    @include abs-center();
+
+    z-index: 300;
+  }
+
+  &__body {
+    @include light();
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+  }
+}
