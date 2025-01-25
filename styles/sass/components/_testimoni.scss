@@ -3,6 +3,7 @@
 .testimoni {
   @include abs-center();
   pointer-events: none;
+  z-index: 600;
 
   &__orbit {
     @include abs-center();
@@ -19,7 +20,7 @@
     @include flex();
     @include abs-center(y);
     @include light();
-    @include border-gradient();
+    @include border-gradient-rounded();
 
     top: -35px;
     cursor: pointer;
@@ -36,17 +37,50 @@
     &:hover::after {
       opacity: 1;
     }
+
+
+    &:hover {
+      .testimoni__text {
+        display: block;
+      }
+    }
   }
 
   &__avatar {
     @include circle(50px);
 
     position: relative;
-    z-index: 500;
     border: 1px solid $black-100;
   }
 
   &__text {
+    @include abs-center(x);
+
     display: none;
+    left: 105%;
+    background-color: $black-60;
+    padding: rem(20) rem(15);
+    width: max-content;
+    max-width: rem(350);
+    border: 1px solid transparent;
+    border-image: $border-gradient-to-left 1;
+    clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 5% 100%, 0% 50%, 5% 0);
+  }
+
+  &__description {
+    color: $grey-2;
+  }
+
+  &__author {
+    display: inline-block;
+    color: $white;
+
+    &::after {
+      display: block;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-image: $color-gradient;
+    }
   }
 }

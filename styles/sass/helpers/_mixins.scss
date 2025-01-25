@@ -146,7 +146,7 @@ $breakpoints: (
   }
 }
 
-@mixin border-gradient {
+@mixin border-gradient-rounded {
   &::before {
     content: "";
     position: absolute;
