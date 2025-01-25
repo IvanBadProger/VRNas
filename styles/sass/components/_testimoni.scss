@@ -38,7 +38,6 @@
       opacity: 1;
     }
 
-
     &:hover {
       .testimoni__text {
         display: block;
@@ -58,6 +57,7 @@
 
     display: none;
     left: 105%;
+    // right: 5%;
     background-color: $black-60;
     padding: rem(20) rem(15);
     width: max-content;
