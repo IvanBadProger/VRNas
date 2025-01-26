@@ -3,7 +3,6 @@
 .testimoni {
   @include abs-center();
   pointer-events: none;
-  z-index: 600;
 
   &__orbit {
     @include abs-center();
@@ -27,6 +26,7 @@
     top: -35px;
     cursor: pointer;
     pointer-events: auto;
+    z-index: 400;
 
     &::before,
     &::after {
@@ -70,6 +70,10 @@
     border: 1px solid transparent;
     border-image: $border-gradient-to-left 1;
     clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 5% 100%, 0% 50%, 5% 0);
+
+    @include media(tablet) {
+      max-width: rem(200);
+    }
   }
 
   &__description {
