@@ -25,6 +25,7 @@ $white: #fff;
 // Other
 $border-gradient: linear-gradient(to bottom left, $white 0%, transparent 100%);
 $border-gradient-to-left: linear-gradient(to left, $black-40 0%, transparent 100%);
+
 $transition-duration: 0.3s;
 
 // css variables
@@ -33,11 +34,4 @@ $transition-duration: 0.3s;
   --container-width: 1240px;
   --section-space: #{rem(100)};
 
-  @media (max-width > 1920px) {
-    & {
-      --section-space: #{rem(125)};
-      --container-width: 80vw;
-      --font-size-base: 18px;
-    }
-  }
 }

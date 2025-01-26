@@ -2,6 +2,8 @@
 
 .testimonial {
   height: 100vh;
+  margin-top: var(--section-space);
+  margin-inline: auto;
   // Почему не работает min-height ?
 
   &__header {
@@ -15,6 +17,11 @@
     @include abs-center();
 
     z-index: 300;
+
+    @include media(laptop-large) {
+      width: rem(500);
+      height: auto;
+    }
   }
 
   &__body {

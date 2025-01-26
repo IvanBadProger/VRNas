@@ -22,11 +22,11 @@
     @include light();
     @include border-gradient-rounded();
 
+    border: none;
+    background-color: $black-60;
     top: -35px;
     cursor: pointer;
     pointer-events: auto;
-    border: none;
-    background-color: $black-60;
 
     &::before,
     &::after {
@@ -48,8 +48,14 @@
   &__avatar {
     @include circle(50px);
 
+    opacity: 0.2;
     position: relative;
     border: 1px solid $black-100;
+    transition-duration: $transition-duration;
+
+    &--active {
+      opacity: 1;
+    }
   }
 
   &__text {
@@ -57,7 +63,6 @@
 
     display: none;
     left: 105%;
-    // right: 5%;
     background-color: $black-60;
     padding: rem(20) rem(15);
     width: max-content;
