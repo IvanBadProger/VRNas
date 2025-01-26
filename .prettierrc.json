@@ -1,0 +1,15 @@
+{
+  "printWidth": 65,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "ignore",
+  "jsxBracketSameLine": false,
+  "htmlFormat": {
+    "wrapAttributes": "force-expand-multiline",
+    "singleQuote": false
+  }
+}

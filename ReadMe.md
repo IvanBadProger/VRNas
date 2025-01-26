@@ -76,11 +76,19 @@
   ],
 ```
 
-# Установка Prettier [Пытаюсь настроить]
+# Настройка Prettier
 
-- Установить расширение
-- Установить Prettier форматтеров по умолчанию
-- Добавить в корень проекта файл .prettierrc
+- Установить расширение Prettier - Code formatter
+
+![alt text](./assets/docs/prettier.png)
+
+- Добавить в корень проекта файл .prettierrc.json, если его нет
+- Отформатировать файл с помощью Prettier:
+
+  ![alt text](./assets/docs/prettier-2.png)
+  ![alt text](./assets/docs/prettier-3.png)
+
+- Или установить Prettier форматтером по умолчанию: configute default formatter (на прошлом скриншоте)
 
 # Как начать внести вклад в проект если ты не коллаборатор?
 
