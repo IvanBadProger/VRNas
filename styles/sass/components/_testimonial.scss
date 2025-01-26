@@ -12,6 +12,13 @@
     pointer-events: none;
     z-index: 300;
 
+    @include media(laptop) {
+      top: 35%;
+    }
+
+    @include media(tablet) {
+      top: 0;
+    }
   }
 
   &__main-image {
@@ -31,10 +38,9 @@
     position: relative;
     height: 100%;
     width: 100%;
-    top: 10%;
 
     @include media(laptop) {
-      top: 30%;
+      top: 25%;
     }
 
   }

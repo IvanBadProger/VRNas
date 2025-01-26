@@ -53,7 +53,7 @@
     border: 1px solid $black-100;
     transition-duration: $transition-duration;
 
-    &--active {
+    &--visible {
       opacity: 1;
     }
   }
