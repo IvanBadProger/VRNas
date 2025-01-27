@@ -1,0 +1,67 @@
+@use '../helpers' as *;
+
+:root {
+
+  @media (max-width > 1920px) {
+    --section-space: #{rem(125)};
+    --container-width: 80vw;
+    --font-size-base: 18px;
+  }
+
+  @include media(laptop-large) {
+    --section-space: #{rem(75)};
+  }
+
+  @include media(laptop) {
+    --container-width: 1000px;
+  }
+
+  @include media(tablet) {
+    --section-space: #{rem(50)};
+    --font-size-base: 14px;
+    --container-width: 750px;
+  }
+
+  @include media(mobile) {
+    --font-size-base: 12px;
+    --container-width: 400px;
+  }
+}
+
+body {
+  background-color: $black-100;
+  color: $grey-2;
+  font-size: var(--font-size-base);
+  overflow-x: hidden;
+}
+
+// Глянуть по поводу интерлиньяжа. Возможно он не стандартный
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $white;
+}
+
+.h2,
+.h3 {
+  text-align: center;
+}
+
+.h2 {
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: $color-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h3 {
+  font-weight: 600;
+  font-size: fluid(48, 32);
+}

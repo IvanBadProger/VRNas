@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 /// Миксин для решения проблемы "залипания" на экранах без hover эффекта.
 /// 
 /// Этот миксин создает две директивы медиа (если $hasActiveEffectOnMobile = true):
@@ -40,10 +42,6 @@
 @mixin square($size) {
   @if not $size {
     @error "Не указан размер фигуры. Пожалуйста, передайте в аргумент миксина желаемое значение.";
-  }
-
-  @if $size < 0 {
-    @error "Размер не может быть отрицательным"
   }
 
   width: $size;
@@ -118,5 +116,65 @@ $breakpoints: (
 
   @else {
     @error "Неизвестный брейкпоинт: #{$breakpoint}. Доступные брейкпоинты: mobile, tablet, laptop, laptop-large.";
+  }
+}
+
+/// Миксин упрощающий работу с display: flex
+/// 
+/// @param {center | between | around} $justify [center] - направление основной оси
+/// 
+/// 
+/// Миксин для создания flex-контейнера с возможностью настройки выравнивания элементов по оси X.
+/// 
+/// @param {String} $justify - Указывает, как выравнивать элементы по оси X.
+@mixin flex($justify: center) {
+  display: flex;
+  align-items: center;
+
+  @if $justify ==center {
+    justify-content: center;
+  }
+
+  @else if $justify ==between {
+    justify-content: space-between;
+  }
+
+  @else if $justify ==around {
+    justify-content: space-around;
+  }
+}
+
+/// Миксин для добавления свечения на заднем фоне.
+/// На макете он определенной формы в SVG формате,
+/// используется псевдоэлемент `::after` для отображения SVG-фона.
+/// 
+/// @note Убедитесь, что путь к SVG изображению правильный.
+@mixin light {
+  &::after {
+    @include abs-center();
+    @include square(100%);
+    content: url('../../assets/svg/light.svg');
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+/// Миксин для создания градиентной рамки (border) на круглых элементах.
+/// 
+/// @note Убедитесь, что элемент имеет свойство `position: relative;`
+///       для корректного отображения псевдоэлемента.
+@mixin border-gradient-rounded {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 1px;
+    transition-duration: $transition-duration;
+    background: $color-gradient border-box;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
   }
 }

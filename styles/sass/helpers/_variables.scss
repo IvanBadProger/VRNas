@@ -1,3 +1,5 @@
+@use './functions' as *;
+
 $font-family: "Chakra Petch", sans-serif;
 
 // Main colors
@@ -11,24 +13,25 @@ $color-red: #FF4747;
 $color-yellow: #FACC15;
 
 // Typography colors
-$greyscale-black-100: #18181b;
-$greyscale-black-80: #252532;
-$greyscale-grey-1: #b0b0b2;
-$greyscale-grey-2: #d1d1d1;
-$greyscale-white: #fff;
+$black-100: #18181b;
+$black-80: #252532;
+$black-60: rgba(37, 37, 50, 0.6);
+$black-40: rgba(255, 255, 255, 0.17);
+
+$grey-1: #b0b0b2;
+$grey-2: #d1d1d1;
+$white: #fff;
 
 // Other
-$border: 1px solid linear-gradient(to bottom left, #fff 0%, transparent 100%);
+$border-gradient: linear-gradient(to bottom left, $white 0%, transparent 100%);
+$border-gradient-to-left: linear-gradient(to left, $black-40 0%, transparent 100%);
+
 $transition-duration: 0.3s;
 
 // css variables
 :root {
   --font-size-base: 16px;
-  --container-width: 1440px;
+  --container-width: 1240px;
+  --section-space: #{rem(100)};
 
-  @media (max-width > 1920px) {
-    & {
-      --container-width: 80vw;
-    }
-  }
 }
