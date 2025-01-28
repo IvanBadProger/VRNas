@@ -1,0 +1,85 @@
+@use '../helpers' as *;
+
+.about-us {
+  @include flex(between);
+
+  margin-top: var(--section-space);
+  column-gap: rem(40);
+
+  &__subtitle {
+    text-align: start;
+    display: inline-block;
+  }
+
+  &__title {
+    margin-block: rem(12);
+    text-align: start;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin-top: rem(24);
+    color: $white;
+    font-weight: 400;
+
+    &-item:not(:last-child) {
+      margin-bottom: rem(14);
+    }
+  }
+
+
+  &__image {
+    @include light();
+
+    --image-width: #{25vw};
+    --image-height: #{calc(var(--image-width) * 1.25)};
+
+    position: relative;
+    width: var(--image-width);
+    height: var(--image-height);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $black-80;
+      width: calc(var(--image-width) - #{rem(135)});
+      height: calc(var(--image-height) - #{rem(135)});
+    }
+
+    &::after {
+      z-index: 10;
+    }
+
+    >img {
+      position: absolute;
+      right: 0;
+      bottom: rem(-5);
+      z-index: 200;
+    }
+  }
+
+  // Жду утилитарку от Александра или Алексея
+  &__button {
+    padding: rem(18) rem(38);
+    text-transform: uppercase;
+    background-image: $color-gradient;
+    color: $white;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+
+    margin-top: rem(32);
+  }
+}
+
+.check-icon {
+  // vertical-align: middle;
+  margin-right: 3px;
+  width: 16px;
+  height: 16px;
+
+  & path {
+    fill: url('#paint0_linear_28530_2192');
+  }
+}

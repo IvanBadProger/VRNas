@@ -2,7 +2,7 @@
 
 :root {
 
-  @media (max-width > 1920px) {
+  @media (min-width: 1920px) {
     --section-space: #{rem(125)};
     --container-width: 80vw;
     --font-size-base: 18px;
@@ -19,23 +19,23 @@
   @include media(tablet) {
     --section-space: #{rem(50)};
     --font-size-base: 14px;
-    --container-width: 750px;
+    --container-width: 700px;
   }
 
   @include media(mobile) {
     --font-size-base: 12px;
-    --container-width: 400px;
+    --container-width: 80vw;
   }
 }
 
 body {
+  font-family: 'Chakra Petch';
   background-color: $black-100;
   color: $grey-2;
+  line-height: 1.75;
   font-size: var(--font-size-base);
   overflow-x: hidden;
 }
-
-// Глянуть по поводу интерлиньяжа. Возможно он не стандартный
 
 h1,
 h2,
@@ -64,4 +64,5 @@ h6 {
 .h3 {
   font-weight: 600;
   font-size: fluid(48, 32);
+  line-height: 1.2;
 }

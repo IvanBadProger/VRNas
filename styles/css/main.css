@@ -194,7 +194,7 @@ svg * {
   --section-space: 6.25rem;
 }
 
-@media (max-width > 1920px) {
+@media (min-width: 1920px) {
   :root {
     --section-space: 7.8125rem;
     --container-width: 80vw;
@@ -215,19 +215,21 @@ svg * {
   :root {
     --section-space: 3.125rem;
     --font-size-base: 14px;
-    --container-width: 750px;
+    --container-width: 700px;
   }
 }
 @media (max-width: 750px) {
   :root {
     --font-size-base: 12px;
-    --container-width: 400px;
+    --container-width: 80vw;
   }
 }
 
 body {
+  font-family: "Chakra Petch";
   background-color: #18181b;
   color: #d1d1d1;
+  line-height: 1.75;
   font-size: var(--font-size-base);
   overflow-x: hidden;
 }
@@ -259,6 +261,7 @@ h6 {
 .h3 {
   font-weight: 600;
   font-size: clamp(2rem, 1.6776859504rem + 1.3223140496vw, 3rem);
+  line-height: 1.2;
 }
 
 .testimonial {
@@ -431,4 +434,84 @@ h6 {
   width: 100%;
   height: 1px;
   background-image: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
+}
+
+.about-us {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--section-space);
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+.about-us__subtitle {
+  text-align: start;
+  display: inline-block;
+}
+.about-us__title {
+  margin-block: 0.75rem;
+  text-align: start;
+}
+.about-us__list {
+  list-style-type: none;
+  margin-top: 1.5rem;
+  color: #fff;
+  font-weight: 400;
+}
+.about-us__list-item:not(:last-child) {
+  margin-bottom: 0.875rem;
+}
+.about-us__image {
+  --image-width: 25vw;
+  --image-height: calc(var(--image-width) * 1.25);
+  position: relative;
+  width: var(--image-width);
+  height: var(--image-height);
+}
+.about-us__image::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  content: url("../../assets/svg/light.svg");
+  z-index: -1;
+  pointer-events: none;
+}
+.about-us__image::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #252532;
+  width: calc(var(--image-width) - 8.4375rem);
+  height: calc(var(--image-height) - 8.4375rem);
+}
+.about-us__image::after {
+  z-index: 10;
+}
+.about-us__image > img {
+  position: absolute;
+  right: 0;
+  bottom: -0.3125rem;
+  z-index: 200;
+}
+.about-us__button {
+  padding: 1.125rem 2.375rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  margin-top: 2rem;
+}
+
+.check-icon {
+  margin-right: 3px;
+  width: 16px;
+  height: 16px;
+}
+.check-icon path {
+  fill: url("#paint0_linear_28530_2192");
 }/*# sourceMappingURL=main.css.map */
