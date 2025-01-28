@@ -4,7 +4,7 @@
   @include flex(between);
 
   margin-top: var(--section-space);
-  column-gap: rem(40);
+  gap: rem(50);
 
   &__subtitle {
     text-align: start;
@@ -31,7 +31,7 @@
   &__image {
     @include light();
 
-    --image-width: #{25vw};
+    --image-width: #{fluid(520, 390)};
     --image-height: #{calc(var(--image-width) * 1.25)};
 
     position: relative;
@@ -44,7 +44,7 @@
       bottom: 0;
       left: 0;
       background-color: $black-80;
-      width: calc(var(--image-width) - #{rem(135)});
+      width: calc(var(--image-width) - #{rem(105)});
       height: calc(var(--image-height) - #{rem(135)});
     }
 
@@ -54,10 +54,18 @@
 
     >img {
       position: absolute;
-      right: 0;
+      right: -1rem;
       bottom: rem(-5);
       z-index: 200;
     }
+  }
+
+  &__video-player {
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0;
+    z-index: 300;
+    width: fluid(196, 147);
   }
 
   // Жду утилитарку от Александра или Алексея
@@ -70,6 +78,10 @@
     letter-spacing: 0.11em;
 
     margin-top: rem(32);
+  }
+
+  @include media(tablet) {
+    flex-direction: column;
   }
 }
 

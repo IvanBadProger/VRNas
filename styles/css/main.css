@@ -331,7 +331,7 @@ h6 {
 }
 @media (max-width: 1280px) {
   .testimonial__body {
-    top: 25%;
+    top: 10%;
   }
 }
 
@@ -455,8 +455,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   margin-top: var(--section-space);
-  -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
+  gap: 3.125rem;
 }
 .about-us__subtitle {
   text-align: start;
@@ -476,7 +475,7 @@ h6 {
   margin-bottom: 0.875rem;
 }
 .about-us__image {
-  --image-width: 25vw;
+  --image-width: clamp(24.375rem, 21.7561983471rem + 10.7438016529vw, 32.5rem);
   --image-height: calc(var(--image-width) * 1.25);
   position: relative;
   width: var(--image-width);
@@ -499,7 +498,7 @@ h6 {
   bottom: 0;
   left: 0;
   background-color: #252532;
-  width: calc(var(--image-width) - 8.4375rem);
+  width: calc(var(--image-width) - 6.5625rem);
   height: calc(var(--image-height) - 8.4375rem);
 }
 .about-us__image::after {
@@ -507,9 +506,16 @@ h6 {
 }
 .about-us__image > img {
   position: absolute;
-  right: 0;
+  right: -1rem;
   bottom: -0.3125rem;
   z-index: 200;
+}
+.about-us__video-player {
+  position: absolute;
+  bottom: -1.2rem;
+  right: 0;
+  z-index: 300;
+  width: clamp(9.1875rem, 8.2004132231rem + 4.0495867769vw, 12.25rem);
 }
 .about-us__button {
   padding: 1.125rem 2.375rem;
@@ -519,6 +525,11 @@ h6 {
   font-weight: 700;
   letter-spacing: 0.11em;
   margin-top: 2rem;
+}
+@media (max-width: 1000px) {
+  .about-us {
+    flex-direction: column;
+  }
 }
 
 .check-icon {
