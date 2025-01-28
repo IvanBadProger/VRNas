@@ -1,4 +1,22 @@
+/// Всеразличные утилитарные классы
+
+/// Класс контентного контейнера. Ширина определяется переменной --container-wigth,
+/// которая переопределяется на разных ширинах экрана
 .container {
   max-width: var(--container-width);
   margin-inline: auto;
+}
+
+/// Класс для визуально скрытых элементов для обычного пользователя, но доступный скринридерам и поисковым роботам
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

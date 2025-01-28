@@ -15,6 +15,7 @@
 ///     background-color: blue; 
 ///   }
 /// }
+/// 
 @mixin hover($hasActiveEffectOnMobile: true) {
   @media (any-hover: hover) {
     &:hover {
@@ -31,6 +32,7 @@
   }
 }
 
+
 /// Задает элементу квадратные размеры.
 /// 
 /// @require @param {number} $size - значение стороны квадрата. Должен быть положительным числом.
@@ -39,6 +41,7 @@
 /// .square-box {
 ///   @include square(100px);
 /// }
+/// 
 @mixin square($size) {
   @if not $size {
     @error "Не указан размер фигуры. Пожалуйста, передайте в аргумент миксина желаемое значение.";
@@ -48,6 +51,7 @@
   height: $size;
 }
 
+
 /// Задает элемент круглым.
 /// 
 /// @require @param {number} $size - размер круга. Должен быть положительным числом.
@@ -56,10 +60,12 @@
 /// .circle-box {
 ///   @include circle(50px);
 /// }
+/// 
 @mixin circle($size) {
   @include square($size);
   border-radius: 50%;
 }
+
 
 /// Миксин, выравнивающий элемент по центру с помощью абсолютного позиционирования.
 /// 
@@ -69,6 +75,7 @@
 /// .centered {
 ///   @include abs-center(null);
 /// }
+/// 
 @mixin abs-center($direction: null) {
   position: absolute;
 
@@ -89,12 +96,15 @@
   }
 }
 
+
+// Брейкпоинты для медиа запросов. Ширины экранов, под которые пишется адаптив
 $breakpoints: (
   laptop-large: 1440,
   laptop: 1280,
   tablet: 1000,
   mobile: 750,
 );
+
 
 /// Миксин для упрощенного написания медиа-запросов.
 /// 
@@ -105,6 +115,7 @@ $breakpoints: (
 /// @include media(laptop) {
 ///   font-size: 14px;
 /// }
+/// 
 @mixin media($breakpoint) {
   $max-width: map-get($breakpoints, $breakpoint);
 
@@ -119,6 +130,7 @@ $breakpoints: (
   }
 }
 
+
 /// Миксин упрощающий работу с display: flex
 /// 
 /// @param {center | between | around} $justify [center] - направление основной оси
@@ -127,6 +139,7 @@ $breakpoints: (
 /// Миксин для создания flex-контейнера с возможностью настройки выравнивания элементов по оси X.
 /// 
 /// @param {String} $justify - Указывает, как выравнивать элементы по оси X.
+/// 
 @mixin flex($justify: center) {
   display: flex;
   align-items: center;
@@ -144,11 +157,13 @@ $breakpoints: (
   }
 }
 
+
 /// Миксин для добавления свечения на заднем фоне.
 /// На макете он определенной формы в SVG формате,
 /// используется псевдоэлемент `::after` для отображения SVG-фона.
 /// 
 /// @note Убедитесь, что путь к SVG изображению правильный.
+/// 
 @mixin light {
   &::after {
     @include abs-center();
@@ -159,10 +174,12 @@ $breakpoints: (
   }
 }
 
+
 /// Миксин для создания градиентной рамки (border) на круглых элементах.
 /// 
 /// @note Убедитесь, что элемент имеет свойство `position: relative;`
-///       для корректного отображения псевдоэлемента.
+/// для корректного отображения псевдоэлемента.
+/// 
 @mixin border-gradient-rounded {
   &::before {
     content: "";

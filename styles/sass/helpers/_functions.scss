@@ -12,6 +12,7 @@
 /// $font-size: rem(32); // возвращает "2rem"
 /// $margin: rem(16); // возвращает "1rem"
 /// $padding: rem(8); // возвращает "0.5rem"
+/// 
 @function rem($pixel) {
   @if math.is-unitless($pixel) {
     @return math.div($pixel, 16)+rem;
@@ -21,6 +22,7 @@
     @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.';
   }
 }
+
 
 /// Генерирует значение размера, которое изменяется в зависимости от ширины вьюпорта.
 /// 
@@ -37,6 +39,7 @@
 /// .text {
 ///   font-size: fluid(24, 12); // возвращает "clamp(1.5rem, calc(1.5rem + 1.25vw), 1.5rem)"
 /// }
+/// 
 @function fluid($max: 100, $min: 10) {
   $maxViewportWidth: 1600;
   $minViewportWidth: 390;

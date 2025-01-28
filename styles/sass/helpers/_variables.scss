@@ -22,16 +22,18 @@ $grey-1: #b0b0b2;
 $grey-2: #d1d1d1;
 $white: #fff;
 
-// Other
+// Основной градиент приложения
 $border-gradient: linear-gradient(to bottom left, $white 0%, transparent 100%);
+// Дополнительный градиент, используется в специфических случаях
 $border-gradient-to-left: linear-gradient(to left, $black-40 0%, transparent 100%);
 
 $transition-duration: 0.3s;
 
-// css variables
 :root {
+  // Базовый размер шрифта для body
   --font-size-base: 16px;
+  // Ширина контентного контейнера
   --container-width: 1240px;
+  // Расстояние между секциями
   --section-space: #{rem(100)};
-
 }
