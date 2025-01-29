@@ -46,10 +46,7 @@
       background-color: $black-80;
       width: calc(var(--image-width) - #{rem(105)});
       height: calc(var(--image-height) - #{rem(135)});
-    }
-
-    &::after {
-      z-index: 10;
+      z-index: -1;
     }
 
     >img {

@@ -37,16 +37,20 @@ function observerCallBack(entries, observer) {
   })
 }
 
+const observerSettings = {
+  rootMargin: '100px',
+  threshold: 0.5,
+}
 /**
  * Экземпляр класса IntersectionObserver, необходимый для реагирования на события появления
  * определенных элементов DOM в пределах видимости пользователя
  *
  * @note если интересно, можно почитать про Intersection Observer API
  */
-const observer = new IntersectionObserver(observerCallBack, {
-  rootMargin: '100px',
-  threshold: 0.5,
-})
+const observer = new IntersectionObserver(
+  observerCallBack,
+  observerSettings
+)
 
 /**
  * Подписка на отслеживание определенных элементов DOM

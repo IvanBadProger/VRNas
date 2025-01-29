@@ -1,13 +1,14 @@
 /**
  * @module - модуль описывающий работу анимации секции отзывов на основе ассоциации их с планетами солнечной системы
  *
- * @note - подумываю переписать этот модуль, выглядит как бред сумашедшего
+ * @note - подумываю переписать этот модуль, выглядит как бред сумашедшего.
+ * @note - по хорошему это все в ООП стиле переписать надо.
  */
 const selectors = {
   orbits: '[data-solar-system=orbit]',
   planets: '[data-solar-system=planet]',
-  users: '.testimoni__user',
-  avatars: '.testimoni__avatar',
+  userButtons: '.testimoni__user',
+  userAvatars: '.testimoni__avatar',
 }
 
 const classes = {
@@ -16,8 +17,12 @@ const classes = {
 
 const orbits = document.querySelectorAll(selectors.orbits)
 const planets = document.querySelectorAll(selectors.planets)
-const users = document.querySelectorAll(selectors.users)
-const avatars = document.querySelectorAll(selectors.avatars)
+const userButtons = document.querySelectorAll(
+  selectors.userButtons
+)
+const userAvatars = document.querySelectorAll(
+  selectors.userAvatars
+)
 
 const ROTATE_ANGLE = 0.35
 
@@ -29,13 +34,15 @@ const animationPlanets = {
 }
 
 const animationUsers = {
-  targets: users,
+  targets: userButtons,
   rotate: (_, i) => `${-i * ROTATE_ANGLE}turn`,
   easing: 'easeInOutQuad',
   duration: 3000,
   complete: () => {
     showAvatars()
-    checkPlanetsPosition()
+    planets.forEach((_, index) =>
+      updatePlanetAndUserPosition(index)
+    )
   },
 }
 
@@ -61,7 +68,7 @@ function setOrbitSize() {
  * Функция добавляет всем элементам масссива avatars класс visible.
  */
 function showAvatars() {
-  avatars.forEach((item) =>
+  userAvatars.forEach((item) =>
     item.classList.add(classes.avatarVisible)
   )
 }
@@ -104,33 +111,26 @@ function getRotateElement(element) {
 /**
  * Функция "докрутки" элементов.
  * Получает текущее значение rotate для текущей планеты и изображения пользователя
- * и увеличивает значение rotate до тех пор, пока планета не войдет в пределы экрана
+ * и увеличивает значение rotate до тех пор, пока планета не войдет в пределы видимости экрана
  *
  * @param {number} index - порядковый индекс планеты и изображения пользователя
  * @param {number} [step] - шаг, на который увеличивается rotate (подразумеваются turn единицы)
  */
 function updatePlanetAndUserPosition(index, step = 0.02) {
   let rotatePlanet = getRotateElement(planets[index])
-  let rotateUser = getRotateElement(users[index])
+  let rotateUser = getRotateElement(userButtons[index])
 
-  while (isElementOutOfViewportHorizontally(users[index])) {
+  while (
+    isElementOutOfViewportHorizontally(userButtons[index])
+  ) {
     rotatePlanet += step
     rotateUser -= step
 
     // prettier-ignore
     planets[index].style.transform = `rotate(${rotatePlanet}turn)`;
-    users[index].style.transform = `rotate(${rotateUser}turn)`
+    // prettier-ignore
+    userButtons[index].style.transform = `rotate(${rotateUser}turn)`
   }
-}
-
-/**
- * Функция пробегающая по массиву планет
- * @note бля над рентабельностью данной функции подумать
- */
-function checkPlanetsPosition() {
-  planets.forEach((_, index) =>
-    updatePlanetAndUserPosition(index)
-  )
 }
 
 /**
