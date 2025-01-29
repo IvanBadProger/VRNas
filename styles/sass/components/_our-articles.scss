@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+
+.our-articles {
+  @include light();
+
+  position: relative;
+
+  &::after {
+    left: 0;
+  }
+
+  &__header {
+    @include flex(between);
+
+    margin-top: var(--section-space);
+  }
+
+  &__slider {
+    margin-top: var(--section-space);
+
+    &-title {
+      margin-bottom: rem(32);
+    }
+  }
+}

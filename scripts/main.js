@@ -1,3 +1,4 @@
+import { initSlider } from './slider.js'
 import { initSolarSystem } from './solar-system-animation.js'
 import { initCheckIcon } from './check-icons-animation.js'
 
@@ -57,3 +58,5 @@ const observer = new IntersectionObserver(
  */
 observer.observe(animationTriggers.checkIcon)
 observer.observe(animationTriggers.solarSystem)
+
+initSlider()

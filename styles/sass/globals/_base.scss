@@ -39,18 +39,24 @@ body {
   overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   color: $white;
 }
 
 .h2,
 .h3 {
   text-align: center;
+}
+
+/// По умолчанию выравнивание по центру, но по макету, примерно в половине случаев необходимо выравнивание по левому краю. Поэтому решено сделать модификатор
+.h2--align_start,
+.h3--align_start {
+  text-align: start;
 }
 
 /// Класс для градиентных заголовков, обычно дублирующих название секции
@@ -69,4 +75,16 @@ h6 {
   font-weight: 600;
   font-size: fluid(48, 32);
   line-height: 1.2;
+}
+
+.h4 {
+  font-weight: 600;
+  font-size: rem(28);
+  letter-spacing: -0.01em;
+}
+
+.h5 {
+  font-weight: 600;
+  font-size: fluid(32, 20);
+  line-height: 143%;
 }

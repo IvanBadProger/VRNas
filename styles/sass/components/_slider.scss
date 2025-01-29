@@ -1,0 +1,76 @@
+@use '../helpers' as *;
+
+.slider {
+  max-width: fit-content;
+
+  &__pagination {
+    @include flex(center);
+
+    column-gap: rem(12);
+    margin-top: rem(40);
+
+    &-item {
+      width: fluid(15, 9);
+      height: fluid(7, 3);
+      background-color: $grey-1;
+      border-radius: $border-radius;
+      transition-duration: $transition-duration;
+      cursor: pointer;
+
+      &:hover:not(&--active) {
+        scale: 1.1;
+      }
+
+      &--active {
+        cursor: default;
+        background-color: $white;
+        width: fluid(25, 17);
+      }
+    }
+  }
+}
+
+.slide {
+  display: none;
+  width: fluid(636, 400);
+  height: auto;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-image: $gradient-to-bottom;
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+  }
+
+  &__image {
+    position: relative;
+    z-index: -1;
+  }
+
+  &__text-content {
+    position: absolute;
+    padding: rem(24);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    &-body {
+      @include flex(between);
+
+      column-gap: rem(50);
+    }
+  }
+
+  &__tag {
+    margin-bottom: rem(12);
+  }
+
+  &--active {
+    display: block;
+  }
+
+}
