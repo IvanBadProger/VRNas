@@ -9,29 +9,153 @@
     />
     <link rel="stylesheet" href="../styles/css/main.css" />
     <script src="../lib/anime.min.js" defer></script>
-    <script src="../scripts/main.js" defer></script>
+    <script
+      src="../scripts/main.js"
+      type="module"
+      defer
+    ></script>
     <title>VRNas</title>
   </head>
 
   <body>
+    <svg class="visually-hidden">
+      <defs>
+        <linearGradient
+          id="paint0_linear_28530_2192"
+          x1="0"
+          y1="8"
+          x2="16"
+          y2="8"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#0CBAF1" />
+          <stop offset="1" stop-color="#E95CE9" />
+        </linearGradient>
+      </defs>
+    </svg>
     <main>
-      <section class="testimonial">
+      <section class="about-us container" id="about-us">
+        <div class="about-us__media-content">
+          <div class="about-us__image">
+            <img
+              src="../assets/img/about-us/main.png"
+              alt=""
+              width="517"
+              height="622"
+              loading="lazy"
+            />
+            <video
+              class="about-us__video-player"
+              src="../assets/video/video.mp4"
+              width="196"
+              height="127"
+              poster="../assets/img/about-us/poster-video-player.png"
+              preload="metadata"
+              muted
+              controls
+            >
+              Извините, ваш браузер не поддерживает встроенные
+              видео, но не волнуйтесь
+            </video>
+          </div>
+        </div>
+        <div class="about-us__content">
+          <h2 class="h2 about-us__subtitle">about-us</h2>
+          <h3 class="h3 about-us__title">
+            Bring your events to life like never before with our
+            VR services.
+          </h3>
+          <!-- Для p какой-то утилитарный может Леша предложит? -->
+          <p class="about-us__description">
+            VRNas is a leading provider of VR services for
+            education, entertainment, architecture, and events.
+            Our mission is to bring the power of virtual reality
+            to everyone, allowing them to explore new worlds,
+            learn in new ways, and experience events in a whole
+            new light.
+          </p>
+          <ul
+            class="about-us__list"
+            data-animation-name="check-icon"
+          >
+            <li class="about-us__list-item">
+              <svg
+                class="check-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.2222 14.2222H1.77778V1.77778H10.6667V0H1.77778C0.8 0 0 0.8 0 1.77778V14.2222C0 15.2 0.8 16 1.77778 16H14.2222C15.2 16 16 15.2 16 14.2222V7.11111H14.2222V14.2222Z"
+                  fill="url(#paint0_linear_28530_2192)"
+                />
+              </svg>
+              Cutting-Edge Technology
+            </li>
+            <li class="about-us__list-item">
+              <svg
+                class="check-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.2222 14.2222H1.77778V1.77778H10.6667V0H1.77778C0.8 0 0 0.8 0 1.77778V14.2222C0 15.2 0.8 16 1.77778 16H14.2222C15.2 16 16 15.2 16 14.2222V7.11111H14.2222V14.2222Z"
+                  fill="url(#paint0_linear_28530_2192)"
+                />
+              </svg>
+              Versatile Applications
+            </li>
+            <li class="about-us__list-item">
+              <svg
+                class="check-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.2222 14.2222H1.77778V1.77778H10.6667V0H1.77778C0.8 0 0 0.8 0 1.77778V14.2222C0 15.2 0.8 16 1.77778 16H14.2222C15.2 16 16 15.2 16 14.2222V7.11111H14.2222V14.2222Z"
+                  fill="url(#paint0_linear_28530_2192)"
+                />
+              </svg>
+              Affordable and Accessible
+            </li>
+          </ul>
+          <a
+            type="button"
+            class="about-us__button button"
+            aria-label="Go to about us page"
+          >
+            read more
+          </a>
+        </div>
+      </section>
+
+      <section
+        class="testimonial"
+        id="testimonial"
+        data-animation-name="solar-system"
+      >
         <header class="testimonial__header">
           <h2 class="h2 testimonial__subtitle">testimonial</h2>
           <h3 class="h3 testimonial__title">
             What Our Clients Are Saying
           </h3>
         </header>
-        <div
-          class="testimonial__body"
-          data-solar-system="solar-system"
-        >
+        <div class="testimonial__body">
           <img
             class="testimonial__main-image"
             src="../assets/img/testimonial/testimonial-main.png"
             alt=""
             width="618"
             height="472"
+            loading="lazy"
           />
           <div class="testimoni" data-solar-system="planet">
             <div
@@ -49,6 +173,7 @@
                   alt=""
                   width="50"
                   height="50"
+                  loading="lazy"
                 />
                 <div class="testimoni__text" id="robert-fox-1">
                   <p class="testimoni__description">
@@ -79,6 +204,7 @@
                   alt=""
                   width="50"
                   height="50"
+                  loading="lazy"
                 />
                 <div class="testimoni__text" id="robert-fox-2">
                   <p class="testimoni__description">
@@ -109,6 +235,7 @@
                   alt=""
                   width="50"
                   height="50"
+                  loading="lazy"
                 />
                 <div class="testimoni__text" id="robert-fox-3">
                   <p class="testimoni__description">
@@ -139,6 +266,7 @@
                   alt=""
                   width="50"
                   height="50"
+                  loading="lazy"
                 />
                 <div class="testimoni__text" id="robert-fox-4">
                   <p class="testimoni__description">
@@ -169,6 +297,7 @@
                   alt=""
                   width="50"
                   height="50"
+                  loading="lazy"
                 />
                 <div class="testimoni__text" id="robert-fox-5">
                   <p class="testimoni__description">
@@ -199,6 +328,7 @@
                   alt=""
                   width="50"
                   height="50"
+                  loading="lazy"
                 />
                 <div class="testimoni__text" id="robert-fox-6">
                   <p class="testimoni__description">

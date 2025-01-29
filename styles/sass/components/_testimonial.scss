@@ -5,31 +5,22 @@
   margin-top: var(--section-space);
   margin-inline: auto;
   position: relative;
-  // Почему не работает min-height ?
 
   &__header {
     position: relative;
     pointer-events: none;
-    z-index: 300;
+    top: 10%;
 
     @include media(laptop) {
-      top: 35%;
-    }
-
-    @include media(tablet) {
       top: 0;
     }
   }
 
   &__main-image {
     @include abs-center();
-    z-index: 300;
-    pointer-events: none;
 
-    @include media(laptop-large) {
-      width: rem(500);
-      height: auto;
-    }
+    pointer-events: none;
+    width: fluid(618, 499);
   }
 
   &__body {
@@ -40,7 +31,17 @@
     width: 100%;
 
     @include media(laptop) {
-      top: 25%;
+      top: 10%;
+
+      &::after {
+        top: 70%;
+      }
+    }
+
+    @include media(mobile) {
+      &::after {
+        top: 90%;
+      }
     }
 
   }
