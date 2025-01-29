@@ -4,7 +4,7 @@
 
 :root {
 
-  @media (min-width: 1920px) {
+  @media (min-width: 1520px) {
     --section-space: #{rem(125)};
     --container-width: 80vw;
     --font-size-base: 18px;
@@ -26,7 +26,7 @@
 
   @include media(mobile) {
     --font-size-base: 12px;
-    --container-width: 80vw;
+    --container-width: 90vw;
   }
 }
 
@@ -87,4 +87,13 @@ body {
   font-weight: 600;
   font-size: fluid(32, 20);
   line-height: 143%;
+}
+
+.button-outline--arrow-right {
+  &::before {
+    @include square(100%);
+
+    content: url('../../assets/svg/arror-right.svg');
+    pointer-events: none;
+  }
 }

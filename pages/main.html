@@ -128,7 +128,7 @@
             </li>
           </ul>
           <a
-            class="about-us__button button"
+            class="about-us__button button-primary"
             aria-label="Go to about us page"
           >
             read more
@@ -344,7 +344,7 @@
         </div>
       </section>
 
-      <section class="our-articles container">
+      <section class="container our-articles">
         <header class="our-articles__header">
           <div class="our-articles__header-titles">
             <h2
@@ -356,22 +356,20 @@
               Stay Up-to-Date with Our VR Insights
             </h3>
           </div>
-          <!-- Все еще жду утилитарный класс от парней -->
-          <button
-            type="button"
-            class="our-articles__header-button"
+          <a
+            class="our-articles__header-button button--outline"
             title="Go to blog page"
             aria-label="Go to blog page"
           >
             See all
-          </button>
+          </a>
         </header>
         <div class="our-articles__body">
-          <div class="our-articles__slider">
+          <div class="">
             <h4 class="h4 our-articles__slider-title">
               Popular articles
             </h4>
-            <div class="slider">
+            <div class="slider our-articles__slider">
               <div class="slide slide--active">
                 <img
                   class="slide__image"
@@ -389,18 +387,10 @@
                     </h5>
                     <a
                       href=""
-                      class="slide__button button button--outline"
+                      class="slide__button button button--outline button-outline--arrow-right"
                       title="Go to article page"
                       aria-label="Go to article page"
-                    >
-                      <img
-                        src="../assets/svg/arror-right.svg"
-                        alt=""
-                        loading="lazy"
-                        width="16"
-                        height="16"
-                      />
-                    </a>
+                    ></a>
                   </div>
                 </div>
               </div>
@@ -418,18 +408,10 @@
                     <h5 class="h5 slide__title">Это норм чел</h5>
                     <a
                       href=""
-                      class="slide__button button button--outline"
+                      class="slide__button button button--outline button-outline--arrow-right"
                       title="Go to article page"
                       aria-label="Go to article page"
-                    >
-                      <img
-                        src="../assets/svg/arror-right.svg"
-                        alt=""
-                        loading="lazy"
-                        width="16"
-                        height="16"
-                      />
-                    </a>
+                    ></a>
                   </div>
                 </div>
               </div>
@@ -449,18 +431,10 @@
                     </h5>
                     <a
                       href=""
-                      class="slide__button button button--outline"
+                      class="slide__button button button--outline button-outline--arrow-right"
                       title="Go to article page"
                       aria-label="Go to article page"
-                    >
-                      <img
-                        src="../assets/svg/arror-right.svg"
-                        alt=""
-                        loading="lazy"
-                        width="16"
-                        height="16"
-                      />
-                    </a>
+                    ></a>
                   </div>
                 </div>
               </div>
@@ -480,18 +454,10 @@
                     </h5>
                     <a
                       href=""
-                      class="slide__button button button--outline"
+                      class="slide__button button button--outline button-outline--arrow-right"
                       title="Go to article page"
                       aria-label="Go to article page"
-                    >
-                      <img
-                        src="../assets/svg/arror-right.svg"
-                        alt=""
-                        loading="lazy"
-                        width="16"
-                        height="16"
-                      />
-                    </a>
+                    ></a>
                   </div>
                 </div>
               </div>
@@ -515,7 +481,148 @@
               </div>
             </div>
           </div>
-          <div class="blog our-articles__blog"></div>
+          <div class="blog our-articles__blog">
+            <h4 class="h4 blog__title">Recent Article</h4>
+            <div class="blog__content">
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-1.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">
+                  VR Education
+                </div>
+                <p class="blog__article-description">
+                  The Future of Education: How VR is
+                  Revolutionizing the ClassroomF
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-2.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">
+                  VR Architecture
+                </div>
+                <p class="blog__article-description">
+                  Bringing Designs to Life: How VR is Changing
+                  Architecture
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-3.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">
+                  VR Entertainment
+                </div>
+                <p class="blog__article-description">
+                  Making Events Memorable: The Power of VR for
+                  Corporate and Special Occasions
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-4.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">VR Event</div>
+                <p class="blog__article-description">
+                  Exploring New Worlds: The Benefits of VR Travel
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-1.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">
+                  VR Education
+                </div>
+                <p class="blog__article-description">
+                  The Future of Education: How VR is
+                  Revolutionizing the ClassroomF
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-2.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">
+                  VR Architecture
+                </div>
+                <p class="blog__article-description">
+                  Bringing Designs to Life: How VR is Changing
+                  Architecture
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+              <article class="blog__article">
+                <img
+                  class="blog__article-image"
+                  src="../assets/img/blog/blog-3.jpg"
+                  alt=""
+                  width="142"
+                  height="91"
+                />
+                <div class="tag blog__article-tag">
+                  VR Entertainment
+                </div>
+                <p class="blog__article-description">
+                  Making Events Memorable: The Power of VR for
+                  Corporate and Special Occasions
+                </p>
+                <a
+                  class="blog__article-button button--outline button-outline--arrow-right"
+                  href=""
+                ></a>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
     </main>

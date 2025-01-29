@@ -32,7 +32,8 @@
 
 .slide {
   display: none;
-  width: fluid(636, 400);
+  // width: 38vw;
+  min-width: rem(500);
   height: auto;
   position: relative;
 
@@ -49,6 +50,8 @@
   &__image {
     position: relative;
     z-index: -1;
+    width: 100%;
+    height: 100%;
   }
 
   &__text-content {

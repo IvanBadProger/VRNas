@@ -60,6 +60,7 @@ function paginationItemClick(event) {
 
   setActiveSlide(clickedIndex)
   setActivePaginationItem(clickedIndex)
+  activeIndex = clickedIndex
 }
 
 /**

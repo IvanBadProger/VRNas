@@ -15,11 +15,44 @@
     margin-top: var(--section-space);
   }
 
-  &__slider {
+  &__body {
+    display: flex;
     margin-top: var(--section-space);
+
+    @include media(tablet) {
+      display: block;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    z-index: 100;
+
+    @include media(tablet) {
+      margin-inline: auto;
+
+      &-title {
+        text-align: center;
+      }
+    }
 
     &-title {
       margin-bottom: rem(32);
     }
   }
+
+  &__blog {
+    position: relative;
+    left: -#{rem(50)};
+
+    @include media(laptop) {
+      left: -#{rem(30)};
+    }
+
+    @include media(tablet) {
+      left: 0;
+      margin-top: rem(32);
+    }
+  }
+
 }
