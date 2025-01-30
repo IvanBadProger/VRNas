@@ -4,6 +4,7 @@
   @include light();
 
   position: relative;
+  margin-top: var(--section-space);
 
   &::after {
     left: 0;
@@ -11,8 +12,6 @@
 
   &__header {
     @include flex(between);
-
-    margin-top: var(--section-space);
   }
 
   &__body {

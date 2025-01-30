@@ -1,18 +1,20 @@
 @use '../helpers' as *;
 
 .testimonial {
-  height: 100vh;
+  height: 120vh;
   margin-top: var(--section-space);
-  margin-inline: auto;
   position: relative;
 
   &__header {
-    position: relative;
+    @include abs-center(y);
+
     pointer-events: none;
     top: 10%;
 
     @include media(laptop) {
+      position: relative;
       top: 0;
+      margin-bottom: rem(30);
     }
   }
 
@@ -21,17 +23,18 @@
 
     pointer-events: none;
     width: fluid(618, 499);
+
   }
 
   &__body {
     @include light();
 
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
 
     @include media(laptop) {
-      top: 10%;
+      // top: 10%;
 
       &::after {
         top: 70%;
