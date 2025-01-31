@@ -152,17 +152,6 @@ label {
 }
 
 /**
-   Приводим к единому цвету svg-элементы
-  */
-[fill] {
-  fill: currentColor;
-}
-
-[stroke] {
-  stroke: currentColor;
-}
-
-/**
    Чиним баг задержки смены цвета при взаимодействии с svg-элементами
   */
 svg * {
@@ -304,6 +293,24 @@ body {
 
 .section {
   margin-top: var(--section-space);
+}
+
+.preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  opacity: 1;
+  transition-duration: 1s;
+}
+.preloader > svg {
+  width: 50%;
+  height: 50%;
+}
+.preloader > svg > path {
+  stroke: #ffffff;
+  fill-opacity: 0;
+  stroke-width: 0.5;
 }
 
 .testimonial {
@@ -526,7 +533,6 @@ body {
 }
 .about-us__subtitle, .about-us__title {
   margin-bottom: 0.75rem;
-  text-align: start;
 }
 .about-us__list {
   margin-top: 1.5rem;
