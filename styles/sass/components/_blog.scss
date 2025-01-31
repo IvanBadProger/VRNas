@@ -1,18 +1,26 @@
 @use '../helpers' as *;
 
+// fix: пересмотреть подход
 .blog {
+  display: inline-block;
+  padding-top: rem(32);
+  padding-inline: rem(100);
   border: 1px solid;
   border-image: linear-gradient(to right, $white-opacity-3 , transparent) 1;
   background-color: $black-80;
-  padding: rem(32) rem(100) 0 rem(100);
-  display: inline-block;
 
   @include media(laptop) {
-    padding: rem(24) rem(50) 0 rem(50);
+    padding-top: rem(24);
+    padding-inline: rem(50);
   }
 
   @include media(tablet) {
-    padding: rem(16) rem(20) 0 rem(20);
+    padding: rem(16);
+    padding-inline: rem(20);
+  }
+
+  &__title {
+    margin-bottom: rem(32);
   }
 
   &__content {
@@ -26,45 +34,37 @@
 
       &-thumb {
         background-color: $white;
-        border-radius: rem(32);
       }
     }
   }
 
-  &__title {
-    margin-bottom: rem(32);
-  }
-
   &__article {
-    position: relative;
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
       "image tag button"
       "image description button"
       "line line line";
-    column-gap: rem(21);
-    row-gap: 0.5rem;
+    gap: 0.5rem rem(21);
     justify-content: space-between;
     align-items: center;
 
     &-image {
       grid-area: image;
       height: 100%;
-      width: auto;
       max-width: rem(142);
       max-height: rem(91);
     }
 
     &-tag {
-      justify-self: start;
       grid-area: tag;
+      justify-self: start;
     }
 
     &-description {
+      grid-area: description;
       justify-self: start;
       color: $white;
-      grid-area: description;
 
       @include media(mobile) {
         font-weight: 700;
@@ -79,8 +79,8 @@
       content: '';
       grid-area: line;
       height: 1px;
-      background-color: $grey-2;
       margin-block: rem(32);
+      background-color: $white-opacity-12;
     }
   }
 }

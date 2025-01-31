@@ -1,15 +1,14 @@
 @use '../helpers' as *;
 
 .testimonial {
-  height: 120vh;
-  margin-top: var(--section-space);
   position: relative;
+  height: 120vh;
 
   &__header {
     @include abs-center(y);
 
-    pointer-events: none;
     top: 10%;
+    pointer-events: none;
 
     @include media(laptop) {
       position: relative;
@@ -21,9 +20,8 @@
   &__main-image {
     @include abs-center();
 
-    pointer-events: none;
     width: fluid(618, 499);
-
+    pointer-events: none;
   }
 
   &__body {
@@ -33,9 +31,8 @@
     height: 100%;
     width: 100%;
 
+    // fix: Почему-то съезжает светилка 
     @include media(laptop) {
-      // top: 10%;
-
       &::after {
         top: 70%;
       }

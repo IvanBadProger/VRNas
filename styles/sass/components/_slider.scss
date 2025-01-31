@@ -22,44 +22,40 @@
       }
 
       &--active {
-        cursor: default;
-        background-color: $white;
         width: fluid(25, 17);
+        background-color: $white;
+        cursor: default;
       }
     }
   }
 }
 
 .slide {
+  position: relative;
   display: none;
-  // width: 38vw;
   min-width: rem(500);
   height: auto;
-  position: relative;
 
+  // Фильтр изображения
   &::before {
     content: '';
-    background-image: $gradient-to-bottom;
     position: absolute;
-    pointer-events: none;
+    inset: 0;
     width: 100%;
     height: 100%;
-    inset: 0;
+    background-image: $gradient-to-bottom;
+    pointer-events: none;
   }
 
   &__image {
-    position: relative;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    object-fit: cover;
   }
 
   &__text-content {
     position: absolute;
-    padding: rem(24);
     left: 0;
     bottom: 0;
-    width: 100%;
+    padding: rem(24);
 
     &-body {
       @include flex(between);
@@ -75,5 +71,4 @@
   &--active {
     display: block;
   }
-
 }

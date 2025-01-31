@@ -2,9 +2,7 @@
 
 .our-articles {
   @include light();
-
   position: relative;
-  margin-top: var(--section-space);
 
   &::after {
     left: 0;
