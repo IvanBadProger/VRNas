@@ -53,17 +53,28 @@ const animationUsers = {
  * (была еще мысль орбиты полностью генерировать через js, но мы же дефолтную верстку делаем, а не через шаблонизаторы)
  */
 function setOrbitSize() {
+  const orbitSizeBase = 500 // Минимальный размер орбиты
+  const container = document.querySelector('.testimonial__body') // Находим контейнер
+  const maxOrbitSize = container.clientHeight // Максимальный размер орбиты равен 100% высоты контейнера
+  const orbitsLength = orbits.length // Длина массива орбит
+  const orbitSizeStep =
+    (maxOrbitSize - orbitSizeBase) / (orbitsLength - 1) // Шаг между орбитами
+
   orbits.forEach((item, index) => {
-    const orbitSizeBase = 550
-    const orbitSizeStep = 130
     const sizeCurrentOrbit =
       orbitSizeBase + index * orbitSizeStep
 
-    item.style.width = `${sizeCurrentOrbit}px`
-    item.style.height = `${sizeCurrentOrbit}px`
+    // Проверяем, чтобы размер не превышал максимальный размер
+    item.style.width = `${Math.min(
+      sizeCurrentOrbit,
+      maxOrbitSize
+    )}px`
+    item.style.height = `${Math.min(
+      sizeCurrentOrbit,
+      maxOrbitSize
+    )}px`
   })
 }
-
 /**
  * Функция добавляет всем элементам масссива avatars класс visible.
  */

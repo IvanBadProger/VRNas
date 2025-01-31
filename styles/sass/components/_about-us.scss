@@ -3,31 +3,13 @@
 .about-us {
   @include flex(between);
 
-  margin-top: var(--section-space);
   gap: rem(50);
 
-  &__subtitle {
-    text-align: start;
-    display: inline-block;
+  @include media(tablet) {
+    flex-direction: column;
   }
 
-  &__title {
-    margin-block: rem(12);
-    text-align: start;
-  }
-
-  &__list {
-    list-style-type: none;
-    margin-top: rem(24);
-    color: $white;
-    font-weight: 400;
-
-    &-item:not(:last-child) {
-      margin-bottom: rem(14);
-    }
-  }
-
-
+  // fix: костыль с высотами убрать
   &__image {
     @include light();
 
@@ -43,13 +25,14 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      background-color: $black-80;
+      z-index: -1;
       width: calc(var(--image-width) - #{rem(105)});
       height: calc(var(--image-height) - #{rem(135)});
-      z-index: -1;
+      background-color: $black-80;
     }
 
     >img {
+      object-fit: cover;
       position: absolute;
       right: -1rem;
       bottom: rem(-5);
@@ -65,28 +48,36 @@
     width: fluid(196, 147);
   }
 
-  // Жду утилитарку от Александра или Алексея
-  &__button {
-    padding: rem(18) rem(38);
-    text-transform: uppercase;
-    background-image: $color-gradient;
-    color: $white;
-    font-weight: 700;
-    letter-spacing: 0.11em;
-
-    margin-top: rem(32);
+  &__subtitle,
+  &__title {
+    margin-bottom: rem(12);
+    text-align: start;
   }
 
-  @include media(tablet) {
-    flex-direction: column;
+  &__list {
+    margin-top: rem(24);
+    font-weight: 400;
+    font-size: rem(18);
+    color: $white;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: rem(10);
+    }
+
+    &-item:not(:last-child) {
+      margin-bottom: rem(14);
+    }
+  }
+
+  &__button {
+    margin-top: rem(32);
   }
 }
 
 .check-icon {
-  // vertical-align: middle;
-  margin-right: 3px;
-  width: 16px;
-  height: 16px;
+  @include square(16px);
 
   & path {
     fill: url('#paint0_linear_28530_2192');
