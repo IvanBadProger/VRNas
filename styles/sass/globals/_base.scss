@@ -3,7 +3,6 @@
 @use '../helpers' as *;
 
 :root {
-
   @media (min-width: 1920px) {
     --section-space: #{rem(125)};
     --container-width: 80vw;
@@ -48,6 +47,18 @@ h6 {
   color: $white;
 }
 
+/// Класс для главных заголовков
+.h1 {
+  font-weight: 600;
+  font-size: fluid(64, 48);
+  letter-spacing: -0.01em;
+  line-height: rem(83);
+  text-transform: capitalize;
+  @include media(mobile) {
+    line-height: rem(58);
+  }
+}
+
 .h2,
 .h3 {
   text-align: center;
@@ -69,4 +80,23 @@ h6 {
   font-weight: 600;
   font-size: fluid(48, 32);
   line-height: 1.2;
+}
+
+/// Класс для обычного описания контента
+.p {
+  font-weight: 300;
+  line-height: rem(28);
+}
+
+/// Класс для кнопок с градиент фоном
+.button--primary {
+  font-weight: 700;
+  font-size: rem(16);
+  letter-spacing: 0.11em;
+  line-height: rem(14);
+  text-transform: uppercase;
+  color: $white;
+  outline: none;
+  border: none;
+  background: $color-gradient;
 }
