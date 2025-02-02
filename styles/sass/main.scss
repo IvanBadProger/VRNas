@@ -1,7 +1,13 @@
 @use 'globals';
 
+@use 'components/preloader';
 @use 'components/testimonial';
 @use 'components/testimoni';
 @use 'components/about-us';
 @use 'components/hero';
 @use 'components/banner-fill';
+=======
+@use 'components/our-articles';
+@use 'components/slider';
+@use 'components/tag';
+@use 'components/blog';

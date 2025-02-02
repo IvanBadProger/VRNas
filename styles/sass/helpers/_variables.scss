@@ -21,15 +21,21 @@ $black-40: rgba(255, 255, 255, 0.17);
 $grey-1: #b0b0b2;
 $grey-2: #d1d1d1;
 $white: #fff;
+$white-opacity-3: rgba(255, 255, 255, 0.3);
+$white-opacity-12: rgba(255, 255, 255, 0.12);
 
-// Основной градиент приложения
 $border-gradient: linear-gradient(to bottom left, $white 0%, transparent 100%);
+
 // Серый бордер лайнер для баннеров
 $border-linear: linear-gradient(to right, $black-40 0%, transparent 100%) 10 stretch;
 // Дополнительный градиент, используется в специфических случаях
+
 $border-gradient-to-left: linear-gradient(to left, $black-40 0%, transparent 100%);
+$gradient-to-bottom: linear-gradient(180deg, rgba(50, 70, 188, 0) 0%, #192883 100%);
 
 $transition-duration: 0.3s;
+
+$border-radius: 16px;
 
 :root {
   // Базовый размер шрифта для body

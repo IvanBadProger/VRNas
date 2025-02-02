@@ -1,0 +1,10 @@
+@use '../helpers' as *;
+
+.tag {
+  display: inline-block;
+  background-color: $white-opacity-3;
+  padding: rem(2) rem(10);
+  border-radius: $border-radius;
+  font-weight: 500;
+  color: $white;
+}
