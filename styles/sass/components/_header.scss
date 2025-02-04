@@ -1,0 +1,71 @@
+@use '../helpers/' as *;
+
+.header {
+    padding-top: 31px;
+    padding-bottom: 31px;
+    
+    &__content {
+        @include flex-align-center;
+        justify-content: space-around;
+    }
+
+    &__nav-bar {
+        width: 518px;
+    }
+
+    &__nav-list {
+        @include flex-align-center;
+        justify-content: space-between;
+    }
+
+    &__nav-item {
+        a {
+            color: $greyscale-white;
+            text-decoration: none;
+        }
+    }
+
+    .header__dropdown {
+        &:hover {
+            .header__dropdown-content {
+                display: block;
+            }
+        }
+    }
+
+    &__dropdown-button {
+        border: none;
+        color: $greyscale-white;
+        background-color: inherit;
+        padding: 0;
+    }
+
+    &__dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: inherit;
+        z-index: 1;
+
+        a {
+            color: $greyscale-white;
+            margin: 20px 0;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        a:hover {
+            background-color: $greyscale-grey-1;
+        }
+    }
+
+    &__contact-button {
+        height: 52px;
+        width: 126px;
+        border: 1px solid;
+        border-image: $color-gradient;
+        border-image-slice: 1;
+        background: none;
+        color: white;
+    }
+}

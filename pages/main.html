@@ -18,7 +18,46 @@
   </head>
 
   <body>
-    <header></header>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo">
+          <a>
+            <img src="../assets/svg/full-logo.svg"/>
+          </a>
+        </div>
+  
+        <nav class="header__nav-bar">
+          <ul class="header__nav-list">
+            <li class="header__nav-item"><a href="#">Home</a></li>
+            <li class="header__nav-item"><a href="#">About us</a></li>
+            <li class="header__nav-item"><a href="#">Service</a></li>
+            <li class="header__nav-item">
+              <div class="header__dropdown">
+                <button class="header__dropdown-button">Page</button>
+                <div class="header__dropdown-content">
+                  <a href="#">opt #1</a>
+                  <a href="#">opt #2</a>
+                  <a href="#">opt #3</a>
+                </div>
+              </div>
+            </li>
+            <li class="header__nav-item">
+              <div class="header__dropdown">
+                <button class="header__dropdown-button">Blog</button>
+                <div class="header__dropdown-content">
+                  <a href="#">opt #1</a>
+                  <a href="#">opt #2</a>
+                  <a href="#">opt #3</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+  
+        <button class="header__contact-button">Contact us</button>
+      </div>
+    </header>
+    
     <svg class="visually-hidden">
       <defs>
         <linearGradient
