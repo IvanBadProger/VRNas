@@ -773,4 +773,61 @@ body {
   height: 1px;
   margin-block: 2rem;
   background-color: rgba(255, 255, 255, 0.12);
+}
+
+.header {
+  padding-top: 31px;
+  padding-bottom: 31px;
+}
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header__nav-bar {
+  width: 518px;
+}
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__nav-item a {
+  color: #fff;
+  text-decoration: none;
+}
+.header .header__dropdown:hover .header__dropdown-content {
+  display: block;
+}
+.header__dropdown-button {
+  border: none;
+  color: #fff;
+  background-color: inherit;
+  padding: 0;
+}
+.header__dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: inherit;
+  z-index: 1;
+}
+.header__dropdown-content a {
+  color: #fff;
+  margin: 20px 0;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.header__dropdown-content a:hover {
+  background-color: #b0b0b2;
+}
+.header__contact-button {
+  height: 52px;
+  width: 126px;
+  border: 1px solid;
+  -o-border-image: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
+     border-image: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
+  border-image-slice: 1;
+  background: none;
+  color: white;
 }/*# sourceMappingURL=main.css.map */

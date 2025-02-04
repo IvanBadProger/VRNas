@@ -20,7 +20,7 @@
 
     &__nav-item {
         a {
-            color: $greyscale-white;
+            color: $white;
             text-decoration: none;
         }
     }
@@ -35,7 +35,7 @@
 
     &__dropdown-button {
         border: none;
-        color: $greyscale-white;
+        color: $white;
         background-color: inherit;
         padding: 0;
     }
@@ -47,7 +47,7 @@
         z-index: 1;
 
         a {
-            color: $greyscale-white;
+            color: $white;
             margin: 20px 0;
             text-decoration: none;
             display: block;
@@ -55,7 +55,7 @@
         }
 
         a:hover {
-            background-color: $greyscale-grey-1;
+            background-color: $grey-1;
         }
     }
 
