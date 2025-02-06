@@ -3,7 +3,7 @@
 @use '../helpers' as *;
 
 :root {
-  @media (min-width: 1920px) {
+  @media (min-width: 1520px) {
     --section-space: #{rem(125)};
     --container-width: 80vw;
     --font-size-base: 18px;
@@ -25,7 +25,7 @@
 
   @include media(mobile) {
     --font-size-base: 12px;
-    --container-width: 80vw;
+    --container-width: 90vw;
   }
 }
 
@@ -38,12 +38,12 @@ body {
   overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   color: $white;
 }
 
@@ -64,6 +64,12 @@ h6 {
   text-align: center;
 }
 
+/// По умолчанию выравнивание по центру, но по макету, примерно в половине случаев необходимо выравнивание по левому краю. Поэтому решено сделать модификатор
+.h2--align_start,
+.h3--align_start {
+  text-align: start;
+}
+
 /// Класс для градиентных заголовков, обычно дублирующих название секции
 .h2 {
   font-weight: 500;
@@ -82,19 +88,12 @@ h6 {
   line-height: 1.2;
 }
 
-/// Класс для мелких заголовков
-.h4 {
-  font-size: rem(20);
-  font-weight: 500;
-}
-
-/// Класс для обычного описания контента
 .p {
   font-weight: 300;
   line-height: rem(28);
 }
 
-/// Класс для кнопок с градиент фоном
+/// Класс для кнопок с градиентным фоном
 .button--primary {
   font-weight: 700;
   font-size: rem(16);
@@ -105,4 +104,29 @@ h6 {
   outline: none;
   border: none;
   background: $color-gradient;
+}
+
+.h4 {
+  font-weight: 600;
+  font-size: rem(28);
+  letter-spacing: -0.01em;
+}
+
+.h5 {
+  font-weight: 600;
+  font-size: fluid(32, 20);
+  line-height: 143%;
+}
+
+.button-outline--arrow-right {
+  &::before {
+    @include square(100%);
+
+    content: url('../../assets/svg/arror-right.svg');
+    pointer-events: none;
+  }
+}
+
+.section {
+  margin-top: var(--section-space);
 }

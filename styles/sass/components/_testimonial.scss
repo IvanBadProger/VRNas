@@ -1,38 +1,38 @@
 @use '../helpers' as *;
 
 .testimonial {
-  height: 100vh;
-  margin-top: var(--section-space);
-  margin-inline: auto;
   position: relative;
+  height: 120vh;
 
   &__header {
-    position: relative;
-    pointer-events: none;
+    @include abs-center(y);
+
     top: 10%;
+    pointer-events: none;
 
     @include media(laptop) {
+      position: relative;
       top: 0;
+      margin-bottom: rem(30);
     }
   }
 
   &__main-image {
     @include abs-center();
 
-    pointer-events: none;
     width: fluid(618, 499);
+    pointer-events: none;
   }
 
   &__body {
     @include light();
 
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
 
+    // fix: Почему-то съезжает светилка 
     @include media(laptop) {
-      top: 10%;
-
       &::after {
         top: 70%;
       }

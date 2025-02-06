@@ -1,0 +1,86 @@
+@use '../helpers' as *;
+
+// fix: пересмотреть подход
+.blog {
+  display: inline-block;
+  padding-top: rem(32);
+  padding-inline: rem(100);
+  border: 1px solid;
+  border-image: linear-gradient(to right, $white-opacity-3 , transparent) 1;
+  background-color: $black-80;
+
+  @include media(laptop) {
+    padding-top: rem(24);
+    padding-inline: rem(50);
+  }
+
+  @include media(tablet) {
+    padding: rem(16);
+    padding-inline: rem(20);
+  }
+
+  &__title {
+    margin-bottom: rem(32);
+  }
+
+  &__content {
+    max-height: rem(750);
+    overflow-y: scroll;
+    padding-right: fluid(50, 0);
+
+    &::-webkit-scrollbar {
+      width: 2px;
+      background-color: $white-opacity-12;
+
+      &-thumb {
+        background-color: $white;
+      }
+    }
+  }
+
+  &__article {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "image tag button"
+      "image description button"
+      "line line line";
+    gap: 0.5rem rem(21);
+    justify-content: space-between;
+    align-items: center;
+
+    &-image {
+      grid-area: image;
+      height: 100%;
+      max-width: rem(142);
+      max-height: rem(91);
+    }
+
+    &-tag {
+      grid-area: tag;
+      justify-self: start;
+    }
+
+    &-description {
+      grid-area: description;
+      justify-self: start;
+      color: $white;
+
+      @include media(mobile) {
+        font-weight: 700;
+      }
+    }
+
+    &-button {
+      grid-area: button;
+    }
+
+    &::after {
+      content: '';
+      grid-area: line;
+      height: 1px;
+      margin-block: rem(32);
+      background-color: $white-opacity-12;
+    }
+  }
+}

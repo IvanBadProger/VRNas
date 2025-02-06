@@ -13,17 +13,18 @@
   }
 
   &__user {
-    $user-size: rem(75);
+    // fix: на больших экранах увеличить
+    --user-size: #{rem(75)};
 
-    @include circle($user-size);
+    @include circle(var(--user-size));
     @include flex();
     @include abs-center(y);
     @include light();
     @include border-gradient-rounded();
 
+    top: -35px;
     border: none;
     background-color: $black-60;
-    top: -35px;
     cursor: pointer;
     pointer-events: auto;
 
@@ -47,9 +48,9 @@
   &__avatar {
     @include circle(50px);
 
-    opacity: 0.2;
     position: relative;
     border: 1px solid $black-100;
+    opacity: 0.2;
     transition-duration: $transition-duration;
 
     &--visible {
@@ -60,19 +61,16 @@
   &__text {
     @include abs-center(x);
 
-    display: none;
     left: 105%;
-    background-color: $black-60;
-    padding: rem(20) rem(15);
+    display: none;
+    max-width: fluid(350, 200);
     width: max-content;
-    max-width: rem(350);
+    padding: rem(20) rem(15);
+    background-color: $black-60;
     border: 1px solid transparent;
     border-image: $border-gradient-to-left 1;
     clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 5% 100%, 0% 50%, 5% 0);
-
-    @include media(tablet) {
-      max-width: rem(200);
-    }
+    cursor: default;
   }
 
   &__description {
@@ -84,8 +82,8 @@
     color: $white;
 
     &::after {
-      display: block;
       content: '';
+      display: block;
       width: 100%;
       height: 1px;
       background-image: $color-gradient;
