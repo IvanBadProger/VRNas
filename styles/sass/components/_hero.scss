@@ -1,13 +1,15 @@
 @use '../helpers' as *;
 
 .hero {
-  margin-top: var(--section-space);
   &__content {
-    position: relative;
     @include flex(between);
+
+    position: relative;
+
     @include media(laptop) {
       align-items: flex-end;
     }
+
     @include media(mobile) {
       flex-direction: column;
     }
@@ -17,6 +19,7 @@
     margin-top: rem(12);
   }
 
+  // fix: через padding и сделать БЭМ блок для кнопки (или хотя бы класс)
   &__button {
     width: rem(206);
     height: rem(50);
@@ -28,6 +31,7 @@
     align-items: center;
     margin-top: rem(42);
     position: relative;
+
     @include media(laptop) {
       margin-bottom: 1rem;
     }
@@ -38,9 +42,12 @@
 
     &-client-img {
       position: relative;
+
+      // fix: а если элементов будет больше?
       &:nth-child(2) {
         left: -1%;
       }
+
       &:last-child {
         left: -2%;
       }
@@ -49,13 +56,16 @@
     &-clients-text {
       text-transform: capitalize;
       margin-right: rem(75);
+
       @include media(tablet) {
         margin-right: 0;
       }
+
       &_white {
         color: $white;
         font-weight: 600;
         position: relative;
+
         &::before {
           content: url('../../../assets/svg/hero/hero_line.svg');
           position: absolute;
@@ -67,6 +77,8 @@
 
     &-video-player {
       z-index: 1;
+
+      // fix: bottom -750% ?
       @include media(mobile) {
         position: absolute;
         bottom: -750%;
@@ -77,10 +89,13 @@
 
   &__media {
     @include light;
+
     position: relative;
+
     @include media(mobile) {
       width: rem(354);
       height: rem(422);
+
       &::after {
         left: 95%;
       }
@@ -94,4 +109,3 @@
     }
   }
 }
-

@@ -61,4 +61,4 @@ observer.observe(animationTriggers.checkIcon)
 observer.observe(animationTriggers.solarSystem)
 
 initSlider()
-preloaderStart()
+// preloaderStart()
