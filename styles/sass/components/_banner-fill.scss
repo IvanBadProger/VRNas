@@ -1,0 +1,40 @@
+@use '../helpers' as *;
+
+.hero{
+  &__banner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: $black-80;
+    border: 1px solid transparent;
+    border-image: $border-linear;
+    padding: rem(42) rem(64) rem(53) rem(64);
+    column-gap: rem(50);
+    @include media(tablet) {
+      flex-direction: column;
+      gap: rem(50);
+    }
+    @include media(mobile) {
+      padding: rem(36);
+    }
+  
+    &-title {
+      font-size: rem(20);
+      font-weight: 400;
+      color: $white;
+    }
+  
+    &-description {
+      font-size: rem(16);
+      line-height: 200%;
+    }
+  
+    &-icon {
+      margin-bottom: rem(42);
+    }
+  
+    &-description {
+      margin-top: rem(12);
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@use '../helpers' as *;
+
+.hero {
+  margin-top: var(--section-space);
+  &__content {
+    position: relative;
+    @include flex(between);
+    @include media(laptop) {
+      align-items: flex-end;
+    }
+    @include media(mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__description {
+    margin-top: rem(12);
+  }
+
+  &__button {
+    width: rem(206);
+    height: rem(50);
+    margin-top: rem(32);
+  }
+
+  &__extra {
+    display: flex;
+    align-items: center;
+    margin-top: rem(42);
+    position: relative;
+    @include media(laptop) {
+      margin-bottom: 1rem;
+    }
+
+    &-clients-img {
+      display: contents;
+    }
+
+    &-client-img {
+      position: relative;
+      &:nth-child(2) {
+        left: -1%;
+      }
+      &:last-child {
+        left: -2%;
+      }
+    }
+
+    &-clients-text {
+      text-transform: capitalize;
+      margin-right: rem(75);
+      @include media(tablet) {
+        margin-right: 0;
+      }
+      &_white {
+        color: $white;
+        font-weight: 600;
+        position: relative;
+        &::before {
+          content: url('../../../assets/svg/hero/hero_line.svg');
+          position: absolute;
+          bottom: -45%;
+          left: -15%;
+        }
+      }
+    }
+
+    &-video-player {
+      z-index: 1;
+      @include media(mobile) {
+        position: absolute;
+        bottom: -750%;
+        left: 0%;
+      }
+    }
+  }
+
+  &__media {
+    @include light;
+    position: relative;
+    @include media(mobile) {
+      width: rem(354);
+      height: rem(422);
+      &::after {
+        left: 95%;
+      }
+    }
+
+    &-image {
+      @include media(mobile) {
+        position: absolute;
+        left: 50%;
+      }
+    }
+  }
+}
+

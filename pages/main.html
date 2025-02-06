@@ -14,6 +14,7 @@
       type="module"
       defer
     ></script>
+    <script src="../scripts/drop-down-text.js" defer></script>
     <title>VRNas</title>
   </head>
 
@@ -149,6 +150,147 @@
       </svg>
     </div>
     <main>
+      <section class="hero container">
+        <div class="hero__content">
+          <div class="hero__content-info">
+            <div class="hero__text">
+              <h1 class="h1 hero__title">
+                Immerse Yourself in Virtual Reality
+              </h1>
+              <p class="p hero__description">
+                Experience Unforgettable Events in VR. Bring your
+                events to life like never before with our VR
+                services
+              </p>
+            </div>
+
+            <button
+              class="button--primary hero__button"
+              type="button"
+            >
+              discover more
+            </button>
+
+            <div class="hero__extra">
+              <div class="hero__extra-clients-img">
+                <img
+                  class="hero__extra-client-img"
+                  src="../assets/img/hero/client_01.png"
+                  alt=""
+                  width="50"
+                  height="50"
+                  loading="lazy"
+                />
+                <img
+                  class="hero__extra-client-img"
+                  src="../assets/img/hero/client_02.png"
+                  alt=""
+                  width="50"
+                  height="50"
+                  loading="lazy"
+                />
+                <img
+                  class="hero__extra-client-img"
+                  src="../assets/img/hero/client_03.png"
+                  alt=""
+                  width="50"
+                  height="50"
+                  loading="lazy"
+                />
+              </div>
+
+              <span class="hero__extra-clients-text">
+                <span class="hero__extra-clients-text_white">
+                  32k+
+                </span>
+                Happy Client
+              </span>
+
+              <video
+                class="hero__extra-video-player"
+                src="../assets/video/hero_video.mp4"
+                width="196"
+                height="127"
+                poster="../assets/img/hero/poster.jpg"
+                preload="metadata"
+                controls
+              >
+                Извините, ваш браузер не поддерживает встроенные
+                видео, но не волнуйтесь
+              </video>
+            </div>
+          </div>
+
+          <div class="hero__media">
+            <img
+              class="hero__media-image"
+              src="../assets/img/hero/hero_img-main.png"
+              alt=""
+              width="526"
+              height="626"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="hero__banner">
+          <div class="hero__banner-content">
+            <img
+              class="hero__banner-icon"
+              src="../assets/svg//hero/banner_icon_01.svg"
+              alt=""
+              width="70"
+              height="70"
+              loading="lazy"
+            />
+            <span class="hero__banner-title">Expertise</span>
+            <p class="hero__banner-description">
+              Our team consists of experienced VR developers,
+              designers, and technicians who have a passion for
+              VR and a commitment to delivering quality work and
+              give the best service
+            </p>
+          </div>
+
+          <div class="hero__banner-content">
+            <img
+              class="hero__banner-icon"
+              src="../assets/svg//hero/banner_icon_02.svg"
+              alt=""
+              width="70"
+              height="70"
+              loading="lazy"
+            />
+            <span class="h4 hero__banner-title">
+              Customization
+            </span>
+            <p class="hero__banner-description">
+              Every client is unique, and we believe every VR
+              experience should be too. We'll work with you to
+              create a customized solution that meets your
+              specific needs and goals
+            </p>
+          </div>
+
+          <div class="hero__banner-content">
+            <img
+              class="hero__banner-icon"
+              src="../assets/svg//hero/banner_icon_03.svg"
+              alt=""
+              width="70"
+              height="70"
+              loading="lazy"
+            />
+            <span class="h4 hero__banner-title">Service</span>
+            <p class="hero__banner-description">
+              We believe in providing exceptional customer
+              service, from initial consultation to final
+              delivery. Our goal is to ensure you're satisfied
+              with every aspect of your VR experience.
+            </p>
+          </div>
+        </div>
+      </section>
       <section class="about-us container section" id="about-us">
         <div class="about-us__media-content">
           <div class="about-us__image">
@@ -248,6 +390,88 @@
           >
             read more
           </a>
+        </div>
+      </section>
+      <section class="choose-us container">
+        <div class="choose-us__content">
+          <h2 class="h2 choose-us__subtitle">WHY CHOOSE US</h2>
+
+          <h3 class="h3 choose-us__title">
+            Why Choose Us for Your VR Needs
+          </h3>
+
+          <div class="choose-us__tabs">
+            <div class="choose-us__tab-content">
+              <h4 class="h4 choose-us__tab-title" data-target-id="text1">
+                Passionate and Experienced Team
+                <span class="circumflex">&#94;</span>
+              </h4>
+              <p class="p choose-us__tab-text" data-text="text1">
+                We are proud of our team of VR experts who are
+                passionate about VR and dedicated to delivering the
+                highest quality work. Our team consists of
+                experienced VR developers, designers, and
+                technicians who have a proven track record of
+                creating immersive and engaging VR experiences.
+              </p>
+            </div>
+
+            <div class="choose-us__tab-content">
+              <h4 class="h4 choose-us__tab-title" data-target-id="text2">
+                Customized Solutions
+                <span class="circumflex">&#94;</span>
+              </h4>
+              <p class="p choose-us__tab-text" data-text="text2">
+                We are proud of our team of VR experts who are
+                passionate about VR and dedicated to delivering the
+                highest quality work. Our team consists of
+                experienced VR developers, designers, and
+                technicians who have a proven track record of
+                creating immersive and engaging VR experiences.
+              </p>
+            </div>
+
+            <div class="choose-us__tab-content">
+              <h4 class="h4 choose-us__tab-title" data-target-id="text3">
+                Exceptional Customer Service
+                <span class="circumflex">&#94;</span>
+              </h4>
+              <p class="p choose-us__tab-text" data-text="text3">
+                We are proud of our team of VR experts who are
+                passionate about VR and dedicated to delivering the
+                highest quality work. Our team consists of
+                experienced VR developers, designers, and
+                technicians who have a proven track record of
+                creating immersive and engaging VR experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="choose-us__media">
+          <div class="choose-us__image">
+            <img
+              src="../assets/img/choose-us/main.png"
+              alt=""
+              width="563"
+              height="662"
+              loading="lazy"
+            />
+
+            <video
+              class="choose-us__video-player"
+              src="../assets/video/video.mp4"
+              width="196"
+              height="128"
+              poster="../assets/img/choose-us/poster-video-player.jpg"
+              muted
+              controls
+              preload="metadata"
+            >
+              Извините, ваш браузер не поддерживает встроенные
+              видео, но не волнуйтесь
+            </video>
+          </div>
         </div>
       </section>
       <section
@@ -457,7 +681,6 @@
           </div>
         </div>
       </section>
-
       <section class="container our-articles section">
         <header class="our-articles__header">
           <div class="our-articles__header-titles">
