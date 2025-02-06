@@ -291,6 +291,11 @@ h6 {
   line-height: 1.2;
 }
 
+.h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
 .p {
   font-weight: 300;
   line-height: 1.75rem;
@@ -712,4 +717,117 @@ h6 {
 }
 .hero__banner-description {
   margin-top: 0.75rem;
+}
+
+.choose-us {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--section-space);
+}
+@media (max-width: 1000px) {
+  .choose-us {
+    flex-direction: column-reverse;
+  }
+}
+.choose-us__subtitle {
+  display: inline-block;
+  text-align: start;
+}
+.choose-us__title {
+  text-align: start;
+  margin-block: 0.75rem 2rem;
+}
+.choose-us__tabs {
+  max-width: 48.25rem;
+  max-height: 50rem;
+}
+.choose-us__tab-content:not(:last-child) {
+  margin-bottom: 3rem;
+}
+.choose-us__tab-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  z-index: 1;
+}
+.choose-us__tab-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  transition: width 0.3s ease;
+}
+.choose-us .focus-tab {
+  border-bottom-color: transparent;
+}
+.choose-us .focus-tab::after {
+  width: 100%;
+}
+.choose-us .circumflex {
+  font-size: 0.625rem;
+  transition: transform 0.3s ease;
+  transform: rotate(180deg);
+}
+.choose-us .focus-tab .circumflex {
+  transform: rotate(0deg);
+}
+.choose-us__tab-text {
+  padding-top: 0.625rem;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: all 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+.choose-us .focus-text {
+  opacity: 1;
+  transform: translateX(0);
+  max-height: 300px;
+}
+.choose-us__image {
+  --image-width: clamp(26.875rem, 24.2561983471rem + 10.7438016529vw, 35rem);
+  --image-height: calc(var(--image-width) * 1.25);
+  position: relative;
+  width: var(--image-width);
+  height: var(--image-height);
+}
+.choose-us__image::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  content: url("../../assets/svg/light.svg");
+  z-index: -1;
+  pointer-events: none;
+}
+.choose-us__image::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 7rem;
+  background-color: #252532;
+  width: calc(var(--image-width) - 10rem);
+  height: calc(var(--image-height) - 12.5rem);
+  z-index: -1;
+}
+.choose-us__image > img {
+  position: absolute;
+  bottom: 0;
+  left: -0.5rem;
+}
+.choose-us__video-player {
+  position: absolute;
+  bottom: -2rem;
+  right: 5rem;
 }/*# sourceMappingURL=main.css.map */
