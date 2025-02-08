@@ -53,18 +53,17 @@ const animationUsers = {
  * (была еще мысль орбиты полностью генерировать через js, но мы же дефолтную верстку делаем, а не через шаблонизаторы)
  */
 function setOrbitSize() {
-  const orbitSizeBase = 500 // Минимальный размер орбиты
-  const container = document.querySelector('.testimonial__body') // Находим контейнер
-  const maxOrbitSize = container.clientHeight // Максимальный размер орбиты равен 100% высоты контейнера
-  const orbitsLength = orbits.length // Длина массива орбит
+  const orbitSizeBase = 500
+  const container = document.querySelector('.testimonial__body')
+  const maxOrbitSize = container.clientHeight
+  const orbitsLength = orbits.length
   const orbitSizeStep =
-    (maxOrbitSize - orbitSizeBase) / (orbitsLength - 1) // Шаг между орбитами
+    (maxOrbitSize - orbitSizeBase) / (orbitsLength - 1)
 
   orbits.forEach((item, index) => {
     const sizeCurrentOrbit =
       orbitSizeBase + index * orbitSizeStep
 
-    // Проверяем, чтобы размер не превышал максимальный размер
     item.style.width = `${Math.min(
       sizeCurrentOrbit,
       maxOrbitSize

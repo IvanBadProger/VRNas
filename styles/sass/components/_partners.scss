@@ -1,0 +1,46 @@
+@use '../helpers' as *;
+
+.partners {
+  &__body {
+    position: relative;
+    width: 100%;
+    height: fluid(742, 302);
+    overflow: hidden;
+  }
+
+  &__header {
+    margin-bottom: fluid(58, 24);
+  }
+
+  &__circles,
+  &__list {
+    @include square(100%);
+
+    position: absolute;
+    inset: 0;
+  }
+
+  &__item {
+    $width: fluid(102, 42);
+    @include flex();
+    @include circle(#{$width});
+
+    position: absolute;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 1rem;
+    background-color: rgba(37, 37, 50, 0.8);
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  &__circles {}
+
+  &__image {
+    @include abs-center(y);
+
+    bottom: 0;
+    width: fluid(650, 288);
+    pointer-events: none;
+  }
+}
