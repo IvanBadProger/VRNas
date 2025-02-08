@@ -191,6 +191,10 @@ svg * {
   overflow: hidden;
 }
 
+.caption {
+  font-size: 16px;
+}
+
 :root {
   --font-size-base: 16px;
   --container-width: 1240px;
@@ -293,6 +297,11 @@ body {
 
 .section {
   margin-top: var(--section-space);
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .preloader {
@@ -776,8 +785,7 @@ body {
 }
 
 .header {
-  padding-top: 31px;
-  padding-bottom: 31px;
+  padding-block: 31px;
 }
 .header__content {
   display: flex;
@@ -792,18 +800,23 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.header__nav-item a {
-  color: #fff;
-  text-decoration: none;
+.header .header__dropdown:hover img {
+  rotate: 180deg;
 }
 .header .header__dropdown:hover .header__dropdown-content {
   display: block;
 }
+.header__dropdown-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .header__dropdown-button {
   border: none;
   color: #fff;
-  background-color: inherit;
+  background-color: transparent;
   padding: 0;
+  padding-right: 7px;
 }
 .header__dropdown-content {
   display: none;
@@ -822,9 +835,8 @@ body {
   background-color: #b0b0b2;
 }
 .header__contact-button {
-  height: 52px;
-  width: 126px;
-  border: 1px solid;
+  padding: 12px 24px;
+  border: 1px solid transparent;
   -o-border-image: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
      border-image: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
   border-image-slice: 1;

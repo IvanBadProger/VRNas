@@ -101,3 +101,9 @@ body {
 .section {
   margin-top: var(--section-space);
 }
+
+// fix: Не делать глобальную стилизацию для всех элементов
+a {
+  text-decoration: none;
+  color: white;
+}

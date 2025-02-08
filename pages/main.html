@@ -20,11 +20,9 @@
   <body>
     <header class="header">
       <div class="header__content">
-        <div class="header__logo">
-          <a>
-            <img src="../assets/svg/full-logo.svg"/>
+          <a href="#" title="home">
+            <img src="../assets/svg/full-logo.svg" alt="" height="30" width="101"/>
           </a>
-        </div>
   
         <nav class="header__nav-bar">
           <ul class="header__nav-list">
@@ -33,7 +31,11 @@
             <li class="header__nav-item"><a href="#">Service</a></li>
             <li class="header__nav-item">
               <div class="header__dropdown">
-                <button class="header__dropdown-button">Page</button>
+                <!-- fix: Найти более валидный вариант -->
+                <div class="header__dropdown-button-container">
+                  <button class="header__dropdown-button" type="button">Page</button>
+                  <img src="../assets/svg/dropdown-arrow.svg">
+                </div>
                 <div class="header__dropdown-content">
                   <a href="#">opt #1</a>
                   <a href="#">opt #2</a>
@@ -43,7 +45,11 @@
             </li>
             <li class="header__nav-item">
               <div class="header__dropdown">
-                <button class="header__dropdown-button">Blog</button>
+                <!-- fix: Найти более валидный вариант -->
+                <div class="header__dropdown-button-container">
+                  <button class="header__dropdown-button" type="button">Page</button>
+                  <img src="../assets/svg/dropdown-arrow.svg">
+                </div>
                 <div class="header__dropdown-content">
                   <a href="#">opt #1</a>
                   <a href="#">opt #2</a>
@@ -53,7 +59,8 @@
             </li>
           </ul>
         </nav>
-  
+        
+        <!-- Реализовать через ссылку (МБ) -->
         <button class="header__contact-button">Contact us</button>
       </div>
     </header>

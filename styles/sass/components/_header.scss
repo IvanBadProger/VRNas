@@ -1,12 +1,12 @@
 @use '../helpers/' as *;
 
 .header {
-    padding-top: 31px;
-    padding-bottom: 31px;
+    // rem func
+    padding-block: 31px;
+
     
     &__content {
-        @include flex-align-center;
-        justify-content: space-around;
+        @include flex(around);
     }
 
     &__nav-bar {
@@ -18,26 +18,35 @@
         justify-content: space-between;
     }
 
-    &__nav-item {
-        a {
-            color: $white;
-            text-decoration: none;
-        }
-    }
+    // &__nav-item {
+    //     a {
+    //         // Вынести в глобальные стили
+    //         color: $white;
+    //         text-decoration: none;
+    //     }
+    // }
 
     .header__dropdown {
         &:hover {
+            img {
+                rotate: 180deg;
+            }
             .header__dropdown-content {
                 display: block;
             }
         }
     }
 
+    &__dropdown-button-container {
+        @include flex(between);
+    }
+
     &__dropdown-button {
         border: none;
         color: $white;
-        background-color: inherit;
+        background-color: transparent;
         padding: 0;
+        padding-right: 7px;
     }
 
     &__dropdown-content {
@@ -60,9 +69,8 @@
     }
 
     &__contact-button {
-        height: 52px;
-        width: 126px;
-        border: 1px solid;
+        padding: 12px 24px;
+        border: 1px solid transparent;
         border-image: $color-gradient;
         border-image-slice: 1;
         background: none;
