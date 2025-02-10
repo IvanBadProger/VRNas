@@ -1,6 +1,7 @@
 import { initSlider } from './slider.js'
 import { initSolarSystem } from './solar-system-animation.js'
 import { initCheckIcon } from './check-icons-animation.js'
+import { initPartners } from './partners.js'
 import { preloaderStart } from './preloader.js'
 
 const animationNames = {
@@ -66,4 +67,5 @@ observer.observe(animationTriggers.checkIcon)
 observer.observe(animationTriggers.solarSystem)
 
 initSlider()
-// preloaderStart()
+initPartners()
+preloaderStart()
