@@ -12,7 +12,7 @@
     &-item {
       width: fluid(15, 9);
       height: fluid(7, 3);
-      background-color: $grey-1;
+      background-color: $grey-60;
       border-radius: $border-radius;
       transition-duration: $transition-duration;
       cursor: pointer;
@@ -33,19 +33,6 @@
 .slide {
   position: relative;
   display: none;
-  min-width: rem(500);
-  height: auto;
-
-  // Фильтр изображения
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-image: $gradient-to-bottom;
-    pointer-events: none;
-  }
 
   &__image {
     object-fit: cover;

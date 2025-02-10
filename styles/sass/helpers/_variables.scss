@@ -12,35 +12,31 @@ $color-green: #00C566;
 $color-red: #FF4747;
 $color-yellow: #FACC15;
 
-// Typography colors
+// Black colors
 $black-100: #18181b;
 $black-80: #252532;
 $black-60: rgba(37, 37, 50, 0.6);
 $black-40: rgba(255, 255, 255, 0.17);
 
-$grey-1: #b0b0b2;
-$grey-2: #d1d1d1;
+// Grey colors
+$grey-60: #b0b0b2;
+$grey-40: #d1d1d1;
+
+// White colors
 $white: #fff;
-
-$white-opacity: rgba(255, 255, 255, 0.35);
-
-$white-opacity-3: rgba(255, 255, 255, 0.3);
 $white-opacity-12: rgba(255, 255, 255, 0.12);
+$white-opacity-3: rgba(255, 255, 255, 0.3);
+$white-opacity-35: rgba(255, 255, 255, 0.35);
 
-$border-gradient: linear-gradient(to bottom left, $white 0%, transparent 100%);
-// Серый бордер лайнер для баннеров
+// Other colors
 $border-linear: linear-gradient(to right, $black-40 0%, transparent 100%) 10 stretch;
-// Дополнительный градиент, используется в специфических случаях
-$border-gradient-to-left: linear-gradient(to left, $black-40 0%, transparent 100%);
 $gradient-to-bottom: linear-gradient(180deg, rgba(50, 70, 188, 0) 0%, #192883 100%);
 
+// Other
 $transition-duration: 0.3s;
-
 $border-radius: 16px;
 
 :root {
-  // Базовый размер шрифта для body
-  --font-size-base: 16px;
   // Ширина контентного контейнера
   --container-width: 1240px;
   // Расстояние между секциями

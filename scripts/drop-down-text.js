@@ -13,8 +13,7 @@ tabs.forEach((tab) => {
   tab.addEventListener('click', function () {
     if (tab.classList.contains('focus-tab')) {
       tab.classList.remove('focus-tab')
-    }
-    else {
+    } else {
       tab.classList.add('focus-tab')
     }
     const targetId = this.dataset.targetId

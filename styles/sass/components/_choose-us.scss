@@ -22,7 +22,7 @@
 
     position: relative;
     padding-bottom: rem(10);
-    border-bottom: 1px solid $white-opacity;
+    border-bottom: 1px solid $white-opacity-35;
     cursor: pointer;
     z-index: 1;
 
@@ -57,7 +57,6 @@
     rotate: 0deg;
   }
 
-  // fix: подумать про display:none
   &__tab-text {
     padding-top: rem(10);
     opacity: 0;
@@ -73,7 +72,6 @@
     max-height: 300px;
   }
 
-  // fix: когда Иван соизволит исправить свой - исправить тут тоже
   &__image {
     @include light();
 

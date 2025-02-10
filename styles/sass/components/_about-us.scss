@@ -2,41 +2,27 @@
 
 .about-us {
   @include flex(between);
-
   gap: rem(50);
 
   @include media(tablet) {
     flex-direction: column;
   }
 
-  // fix: костыль с высотами убрать
-  &__image {
-    @include light();
+  &__media {
+    --container-width: #{fluid(520, 390)};
+    --container-height: #{calc(var(--container-width) * 1.25)};
 
-    --image-width: #{fluid(520, 390)};
-    --image-height: #{calc(var(--image-width) * 1.25)};
+    @include light(true);
+    @include square-behind(var(--container-width), var(--container-height));
 
-    position: relative;
-    width: var(--image-width);
-    height: var(--image-height);
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      width: calc(var(--image-width) - #{rem(105)});
-      height: calc(var(--image-height) - #{rem(135)});
-      background-color: $black-80;
-    }
+    width: var(--container-width);
+    height: var(--container-height);
 
     >img {
-      object-fit: cover;
       position: absolute;
       right: -1rem;
       bottom: rem(-5);
-      z-index: 200;
+      object-fit: cover;
     }
   }
 
@@ -44,7 +30,6 @@
     position: absolute;
     bottom: -1.2rem;
     right: 0;
-    z-index: 300;
     width: fluid(196, 147);
   }
 
@@ -56,12 +41,10 @@
   &__list {
     margin-top: rem(24);
     font-weight: 400;
-    font-size: rem(18);
     color: $white;
 
     &-item {
-      display: flex;
-      align-items: center;
+      @include flex(start);
       column-gap: rem(10);
     }
 
@@ -78,7 +61,5 @@
 .check-icon {
   @include square(16px);
 
-  & path {
-    fill: url('#paint0_linear_28530_2192');
-  }
+  fill: url('../../../assets/svg/sprite.svg#check-icon-gradient');
 }

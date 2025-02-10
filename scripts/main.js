@@ -3,15 +3,20 @@ import { initSolarSystem } from './solar-system-animation.js'
 import { initCheckIcon } from './check-icons-animation.js'
 import { preloaderStart } from './preloader.js'
 
+const animationNames = {
+  solarSystem: 'solar-system',
+  checkIconMorph: 'check-icon-morph',
+}
+
 /**
  * Объект с элементами-триггерами, при видимости которых должны срабатывать соответствующие анимации
  */
 const animationTriggers = {
   solarSystem: document.querySelector(
-    '[data-animation-name=solar-system]'
+    `[data-animation-name=${animationNames.solarSystem}]`
   ),
   checkIcon: document.querySelector(
-    '[data-animation-name=check-icon]'
+    `[data-animation-name=${animationNames.checkIconMorph}]`
   ),
 }
 
@@ -23,11 +28,11 @@ function observerCallBack(entries, observer) {
       )
 
       switch (animationName) {
-        case 'check-icon':
+        case animationNames.checkIconMorph:
           initCheckIcon()
           observer.unobserve(entry.target)
           break
-        case 'solar-system':
+        case animationNames.solarSystem:
           initSolarSystem()
           observer.unobserve(entry.target)
           break

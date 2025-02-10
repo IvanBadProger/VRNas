@@ -8,8 +8,7 @@
   transition-duration: 1s;
 
   >svg {
-    width: 50%;
-    height: 50%;
+    @include square(50%);
 
     >path {
       stroke: #ffffff;
@@ -17,6 +16,4 @@
       stroke-width: 0.5;
     }
   }
-
-
 }
