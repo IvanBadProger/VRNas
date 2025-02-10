@@ -1,0 +1,108 @@
+@use '../helpers' as *;
+
+.choose-us {
+  @include flex(between);
+
+  column-gap: 3rem;
+
+  @include media(tablet) {
+    flex-direction: column-reverse;
+  }
+
+  &__title {
+    margin-block: rem(12) rem(32);
+  }
+
+  &__tab-content:not(:last-child) {
+    margin-bottom: rem(48);
+  }
+
+  &__tab-title {
+    @include flex(between);
+
+    position: relative;
+    padding-bottom: rem(10);
+    border-bottom: 1px solid $white-opacity-35;
+    cursor: pointer;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $white;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      transition-duration: $transition-duration;
+    }
+  }
+
+  .focus-tab {
+    border-bottom-color: transparent;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  .circumflex {
+    font-size: rem(10);
+    rotate: 180deg;
+    transition-duration: $transition-duration;
+  }
+
+  .focus-tab .circumflex {
+    rotate: 0deg;
+  }
+
+  &__tab-text {
+    padding-top: rem(10);
+    opacity: 0;
+    transform: translateY(-30px);
+    transition-duration: $transition-duration;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .focus-text {
+    opacity: 1;
+    transform: translateX(0);
+    max-height: 300px;
+  }
+
+  &__image {
+    @include light();
+
+    --image-width: #{fluid(560, 430)};
+    --image-height: #{calc(var(--image-width) * 1.25)};
+
+    position: relative;
+    width: var(--image-width);
+    height: var(--image-height);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 7rem;
+      background-color: $black-80;
+      width: calc(var(--image-width) - #{rem(160)});
+      height: calc(var(--image-height) - #{rem(200)});
+      z-index: -1;
+    }
+
+    >img {
+      position: absolute;
+      bottom: 0;
+      left: -0.5rem;
+    }
+  }
+
+  &__video-player {
+    position: absolute;
+    bottom: -2rem;
+    right: 5rem;
+  }
+}

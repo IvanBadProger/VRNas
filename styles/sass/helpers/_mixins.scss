@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './functions' as *;
 
 /// Миксин для решения проблемы "залипания" на экранах без hover эффекта.
 /// 
@@ -155,43 +156,61 @@ $breakpoints: (
   @else if $justify ==around {
     justify-content: space-around;
   }
+
+  @else if $justify ==start {
+    justify-content: flex-start;
+  }
+
+  @else if $justify ==end {
+    justify-content: flex-end;
+  }
 }
 
 
 /// Миксин для добавления свечения на заднем фоне.
 /// На макете он определенной формы в SVG формате,
 /// используется псевдоэлемент `::after` для отображения SVG-фона.
-/// fix: Добавить relative на родителя и убрать где надо
-/// @note Убедитесь, что путь к SVG изображению правильный.
-/// 
-@mixin light {
+///
+// fix: мега срочно новое решение для этой светилки
+@mixin light($need-relative: false) {
+  @if $need-relative {
+    position: relative;
+  }
+
   &::after {
     @include abs-center();
     @include square(100%);
+
     content: url('../../assets/svg/light.svg');
     z-index: -1;
     pointer-events: none;
   }
 }
 
-
-/// Миксин для создания градиентной рамки (border) на круглых элементах.
-/// 
-/// @note Убедитесь, что элемент имеет свойство `position: relative;`
-/// для корректного отображения псевдоэлемента.
-/// 
-@mixin border-gradient-rounded {
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    padding: 1px;
-    transition-duration: $transition-duration;
-    background: $color-gradient border-box;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
+/// Миксин для добавления прямоугольника позади изображений. 
+/// Важно цеплять к контейнеру а не изображению
+@mixin square-behind($container-width, $container-height, $need-relative: false) {
+  @if $need-relative {
+    position: relative;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: calc(#{$container-width} - #{rem(105)});
+    height: calc(#{$container-height} - #{rem(135)});
+    background-color: $black-80;
+  }
+}
+
+
+/// Миксин для создания градиентной рамки со скруглениями.
+// fix: цвет по умолчанию не то, что на макете, должен быть black-60, но это решенеие не дружит с прозрачностью
+@mixin border-gradient-rounded($border-gradient: $color-gradient, $bg-color: $black-80) {
+  background:
+    linear-gradient($bg-color, $bg-color) padding-box,
+    $border-gradient border-box;
 }
