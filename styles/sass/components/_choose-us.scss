@@ -13,66 +13,6 @@
     margin-block: rem(12) rem(32);
   }
 
-  &__tab-content:not(:last-child) {
-    margin-bottom: rem(48);
-  }
-
-  &__tab-title {
-    @include flex(between);
-
-    position: relative;
-    padding-bottom: rem(10);
-    border-bottom: 1px solid $white-opacity;
-    cursor: pointer;
-    z-index: 1;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: $white;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-      transition-duration: $transition-duration;
-    }
-  }
-
-  .focus-tab {
-    border-bottom-color: transparent;
-
-    &::after {
-      width: 100%;
-    }
-  }
-
-  .circumflex {
-    font-size: rem(10);
-    rotate: 180deg;
-    transition-duration: $transition-duration;
-  }
-
-  .focus-tab .circumflex {
-    rotate: 0deg;
-  }
-
-  // fix: подумать про display:none
-  &__tab-text {
-    padding-top: rem(10);
-    opacity: 0;
-    transform: translateY(-30px);
-    transition-duration: $transition-duration;
-    max-height: 0;
-    overflow: hidden;
-  }
-
-  .focus-text {
-    opacity: 1;
-    transform: translateX(0);
-    max-height: 300px;
-  }
-
   // fix: когда Иван соизволит исправить свой - исправить тут тоже
   &__image {
     @include light();

@@ -4,8 +4,6 @@
   &__content {
     @include flex(between);
 
-    position: relative;
-
     @include media(laptop) {
       align-items: flex-end;
     }
@@ -19,10 +17,7 @@
     margin-top: rem(12);
   }
 
-  // fix: через padding и сделать БЭМ блок для кнопки (или хотя бы класс)
   &__button {
-    width: rem(206);
-    height: rem(50);
     margin-top: rem(32);
   }
 
@@ -41,37 +36,29 @@
     }
 
     &-client-img {
-      position: relative;
-
-      // fix: а если элементов будет больше?
-      &:nth-child(2) {
-        left: -1%;
-      }
-
-      &:last-child {
-        left: -2%;
-      }
+      border-radius: 50%;
+      margin-left: rem(-10);
     }
 
     &-clients-text {
       text-transform: capitalize;
-      margin-right: rem(75);
+      margin-right: fluid(75, 0);
+      margin-left: 1rem;
+      position: relative;
 
-      @include media(tablet) {
-        margin-right: 0;
-      }
-
-      &_white {
+      &::after {
+        content: '32k+';
         color: $white;
         font-weight: 600;
-        position: relative;
+        position: absolute;
+        left: 0;
+      }
 
-        &::before {
-          content: url('../../../assets/svg/hero/hero_line.svg');
-          position: absolute;
-          bottom: -45%;
-          left: -15%;
-        }
+      &::before {
+        content: url('../../../assets/svg/hero/hero_line.svg');
+        position: absolute;
+        bottom: -45%;
+        left: -15%;
       }
     }
 

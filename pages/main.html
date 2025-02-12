@@ -164,12 +164,9 @@
               </p>
             </div>
 
-            <button
-              class="button--primary hero__button"
-              type="button"
-            >
+            <a class="button button--primary hero__button">
               discover more
-            </button>
+            </a>
 
             <div class="hero__extra">
               <div class="hero__extra-clients-img">
@@ -199,11 +196,9 @@
                 />
               </div>
 
+              <!-- fix: Я испавил с помощью псевдоэлемента чтобы не писать еще один span -->
               <span class="hero__extra-clients-text">
-                <span class="hero__extra-clients-text_white">
-                  32k+
-                </span>
-                Happy Client
+                  32k+ Happy Client
               </span>
 
               <video
@@ -213,10 +208,11 @@
                 height="127"
                 poster="../assets/img/hero/poster.jpg"
                 preload="metadata"
+                muted
                 controls
               >
                 Извините, ваш браузер не поддерживает встроенные
-                видео, но не волнуйтесь
+                видео
               </video>
             </div>
           </div>
@@ -402,16 +398,17 @@
             Why Choose Us for Your VR Needs
           </h3>
 
-          <div class="choose-us__tabs">
-            <div class="choose-us__tab-content">
+          <!-- fix: Задать корректные имена дата атрибутам -->
+          <div class="tabs">
+            <div class="tab__content">
               <h4
-                class="h4 choose-us__tab-title"
-                data-target-id="text1"
+                class="h4 tab__title"
+                data-tab-id="text1"
               >
                 Passionate and Experienced Team
                 <span class="circumflex">&#94;</span>
               </h4>
-              <p class="p choose-us__tab-text" data-text="text1">
+              <p class="p tab__text" data-text="text1">
                 We are proud of our team of VR experts who are
                 passionate about VR and dedicated to delivering
                 the highest quality work. Our team consists of
@@ -421,15 +418,15 @@
               </p>
             </div>
 
-            <div class="choose-us__tab-content">
+            <div class="tab__content">
               <h4
-                class="h4 choose-us__tab-title"
-                data-target-id="text2"
+                class="h4 tab__title"
+                data-tab-id="text2"
               >
                 Customized Solutions
                 <span class="circumflex">&#94;</span>
               </h4>
-              <p class="p choose-us__tab-text" data-text="text2">
+              <p class="p tab__text" data-text="text2">
                 We are proud of our team of VR experts who are
                 passionate about VR and dedicated to delivering
                 the highest quality work. Our team consists of
@@ -439,15 +436,15 @@
               </p>
             </div>
 
-            <div class="choose-us__tab-content">
+            <div class="tab__content">
               <h4
-                class="h4 choose-us__tab-title"
-                data-target-id="text3"
+                class="h4 tab__title"
+                data-tab-id="text3"
               >
                 Exceptional Customer Service
                 <span class="circumflex">&#94;</span>
               </h4>
-              <p class="p choose-us__tab-text" data-text="text3">
+              <p class="p tab__text" data-text="text3">
                 We are proud of our team of VR experts who are
                 passionate about VR and dedicated to delivering
                 the highest quality work. Our team consists of
@@ -480,7 +477,7 @@
               preload="metadata"
             >
               Извините, ваш браузер не поддерживает встроенные
-              видео, но не волнуйтесь
+              видео
             </video>
           </div>
         </div>

@@ -1,23 +1,16 @@
-const tabs = document.querySelectorAll('.choose-us__tab-title')
+const tabs = document.querySelectorAll('.tab__title')
 
-function showText(targetId) {
+function showText(tabId) {
   const textId = document.querySelector(
-    `[data-text="${targetId}"]`
+    `[data-text="${tabId}"]`
   )
-  if (textId) {
     textId.classList.toggle('focus-text')
-  }
 }
 
 tabs.forEach((tab) => {
   tab.addEventListener('click', function () {
-    if (tab.classList.contains('focus-tab')) {
-      tab.classList.remove('focus-tab')
-    }
-    else {
-      tab.classList.add('focus-tab')
-    }
-    const targetId = this.dataset.targetId
-    showText(targetId)
+    tab.classList.toggle('focus-tab') === 'focus-tab'
+    const tabId = this.dataset.tabId
+    showText(tabId)
   })
 })
