@@ -8,7 +8,6 @@
   border-image: linear-gradient(to right, $white-opacity-3 , transparent) 1;
   background-color: $black-80;
 
-  // QnA: я бы через HOC сделал fluid 
   @include media(laptop) {
     padding-top: rem(24);
     padding-inline: rem(50);

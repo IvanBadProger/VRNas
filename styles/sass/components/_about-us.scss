@@ -40,7 +40,6 @@
 
   &__list {
     margin-top: rem(24);
-    font-weight: 400;
     color: $white;
 
     &-item {
@@ -56,10 +55,4 @@
   &__button {
     margin-top: rem(32);
   }
-}
-
-.check-icon {
-  @include square(16px);
-
-  fill: url('../../../assets/svg/sprite.svg#check-icon-gradient');
 }

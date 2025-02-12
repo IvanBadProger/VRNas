@@ -1,17 +1,6 @@
 @use '../helpers' as *;
 
 .testimoni {
-  @include abs-center();
-  pointer-events: none;
-
-  &__orbit {
-    @include abs-center();
-
-    border-radius: 50%;
-    border: 1px solid $black-40;
-    pointer-events: none;
-  }
-
   &__user {
     --user-size: #{rem(75)};
 

@@ -1,12 +1,13 @@
 import { initSlider } from './slider.js'
 import { initSolarSystem } from './solar-system-animation.js'
-import { initCheckIcon } from './check-icons-animation.js'
+import { startCheckIconMorph } from './check-icons-animation.js'
 import { initPartners } from './partners.js'
 import { preloaderStart } from './preloader.js'
 
 const animationNames = {
   solarSystem: 'solar-system',
   checkIconMorph: 'check-icon-morph',
+  partners: 'partners',
 }
 
 /**
@@ -19,6 +20,9 @@ const animationTriggers = {
   checkIcon: document.querySelector(
     `[data-animation-name=${animationNames.checkIconMorph}]`
   ),
+  partners: document.querySelector(
+    `[data-animation-name=${animationNames.partners}]`
+  ),
 }
 
 function observerCallBack(entries, observer) {
@@ -30,11 +34,15 @@ function observerCallBack(entries, observer) {
 
       switch (animationName) {
         case animationNames.checkIconMorph:
-          initCheckIcon()
+          startCheckIconMorph()
           observer.unobserve(entry.target)
           break
         case animationNames.solarSystem:
           initSolarSystem()
+          observer.unobserve(entry.target)
+          break
+        case animationNames.partners:
+          initPartners()
           observer.unobserve(entry.target)
           break
 
@@ -49,6 +57,7 @@ const observerSettings = {
   rootMargin: '100px',
   threshold: 0.5,
 }
+
 /**
  * Экземпляр класса IntersectionObserver, необходимый для реагирования на события появления
  * определенных элементов DOM в пределах видимости пользователя
@@ -65,7 +74,7 @@ const observer = new IntersectionObserver(
  */
 observer.observe(animationTriggers.checkIcon)
 observer.observe(animationTriggers.solarSystem)
+observer.observe(animationTriggers.partners)
 
 initSlider()
-initPartners()
-preloaderStart()
+// preloaderStart()

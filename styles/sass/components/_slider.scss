@@ -34,27 +34,6 @@
   position: relative;
   display: none;
 
-  &__image {
-    object-fit: cover;
-  }
-
-  &__text-content {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: rem(24);
-
-    &-body {
-      @include flex(between);
-
-      column-gap: rem(50);
-    }
-  }
-
-  &__tag {
-    margin-bottom: rem(12);
-  }
-
   &--active {
     display: block;
   }

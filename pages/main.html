@@ -144,12 +144,6 @@
          похожая разметка есть в блоке our service, можно переиспользовать  -->
         <div class="hero__banner">
           <div class="hero__banner-content">
-            <!-- fix: можем сократить количество запросов и подключить иконки через спрайт таким образом -->
-            <!-- <svg>
-              <use
-                href="../assets/svg/sprite.svg#banner-icon-1"
-              ></use>
-            </svg> -->
             <img
               class="hero__banner-icon"
               src="../assets/svg//hero/banner_icon_01.svg"
@@ -298,6 +292,7 @@
           <a
             class="about-us__button button button--primary"
             aria-label="Go to about us page"
+            title="Go to about us page"
           >
             read more
           </a>
@@ -317,11 +312,8 @@
           <h3 class="h3 h--align_start choose-us__title">
             Why Choose Us for Your VR Needs
           </h3>
-          <!-- fix: это называется аккордеон. И это отдельный БЭМ блок (на второй странице в FAQ есть еще один) -->
           <div class="choose-us__tabs">
             <div class="choose-us__tab-content">
-              <!-- fix: text1, data-target-id - слабо понятные названия. Давайте человеко-читаемые названия давать-->
-              <!-- предлагаю data-accordion-tab, data-accordion-content -->
               <h4
                 class="h4 choose-us__tab-title"
                 data-target-id="text1"
@@ -345,7 +337,6 @@
                 data-target-id="text2"
               >
                 Customized Solutions
-                <!-- fix: я так понимаю svg иконка не используется? -->
                 <span class="circumflex">&#94;</span>
               </h4>
               <p class="p choose-us__tab-text" data-text="text2">
@@ -403,7 +394,7 @@
         </div>
       </section>
       <section
-        class="testimonial container section"
+        class="testimonial container section solar-system"
         aria-labelledby="testimonial-heading"
         data-animation-name="solar-system"
       >
@@ -420,16 +411,19 @@
         </header>
         <div class="testimonial__body">
           <img
-            class="testimonial__main-image"
+            class="solar-system__main-image"
             src="../assets/img/testimonial/testimonial-main.png"
             alt=""
             width="618"
             height="472"
             loading="lazy"
           />
-          <div class="testimoni" data-solar-system="planet">
+          <div
+            class="testimoni solar-system__planet"
+            data-solar-system="planet"
+          >
             <div
-              class="testimoni__orbit"
+              class="solar-system__orbit"
               data-solar-system="orbit"
             >
               <button
@@ -458,9 +452,12 @@
               </button>
             </div>
           </div>
-          <div class="testimoni" data-solar-system="planet">
+          <div
+            class="testimoni solar-system__planet"
+            data-solar-system="planet"
+          >
             <div
-              class="testimoni__orbit"
+              class="solar-system__orbit"
               data-solar-system="orbit"
             >
               <button
@@ -489,9 +486,12 @@
               </button>
             </div>
           </div>
-          <div class="testimoni" data-solar-system="planet">
+          <div
+            class="testimoni solar-system__planet"
+            data-solar-system="planet"
+          >
             <div
-              class="testimoni__orbit"
+              class="solar-system__orbit"
               data-solar-system="orbit"
             >
               <button
@@ -520,9 +520,12 @@
               </button>
             </div>
           </div>
-          <div class="testimoni" data-solar-system="planet">
+          <div
+            class="testimoni solar-system__planet"
+            data-solar-system="planet"
+          >
             <div
-              class="testimoni__orbit"
+              class="solar-system__orbit"
               data-solar-system="orbit"
             >
               <button
@@ -551,9 +554,12 @@
               </button>
             </div>
           </div>
-          <div class="testimoni" data-solar-system="planet">
+          <div
+            class="testimoni solar-system__planet"
+            data-solar-system="planet"
+          >
             <div
-              class="testimoni__orbit"
+              class="solar-system__orbit"
               data-solar-system="orbit"
             >
               <button
@@ -582,9 +588,12 @@
               </button>
             </div>
           </div>
-          <div class="testimoni" data-solar-system="planet">
+          <div
+            class="testimoni solar-system__planet"
+            data-solar-system="planet"
+          >
             <div
-              class="testimoni__orbit"
+              class="solar-system__orbit"
               data-solar-system="orbit"
             >
               <button
@@ -616,6 +625,119 @@
         </div>
       </section>
       <section
+        class="section container partners"
+        data-animation-name="partners"
+      >
+        <header class="partners__header">
+          <h2 class="h2 partners__subtitle">
+            Our Trusted Partners
+          </h2>
+          <h3 class="h3 partners__title">
+            Discover the Companies We Work With
+          </h3>
+        </header>
+        <div class="partners__body">
+          <svg
+            class="partners__circles"
+            width="1057"
+            height="529"
+            viewBox="0 0 1057 529"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M695.087 528.46C695.087 437.474 621.328 363.715 530.342 363.715C439.355 363.715 365.596 437.474 365.596 528.46"
+              stroke="white"
+              stroke-width="0.845966"
+            />
+            <path
+              d="M767.617 527.941C767.617 396.04 660.689 289.112 528.788 289.112C396.886 289.112 289.958 396.04 289.958 527.941"
+              stroke="white"
+              stroke-width="0.845966"
+            />
+            <path
+              d="M841.182 527.942C841.182 355.983 701.782 216.583 529.823 216.583C357.865 216.583 218.465 355.983 218.465 527.942"
+              stroke="white"
+              stroke-width="0.845966"
+            />
+            <path
+              d="M909.567 528.46C909.567 318.447 739.318 148.198 529.305 148.198C319.293 148.198 149.044 318.447 149.044 528.46"
+              stroke="white"
+              stroke-width="0.845966"
+            />
+            <path
+              id="partners-path"
+              d="M987.396 528.882C987.396 275.653 782.112 70.3691 528.882 70.3691C275.653 70.3691 70.3691 275.653 70.3691 528.882"
+              stroke="url(#paint0_linear_28859_2198)"
+              stroke-width="0.845966"
+            />
+            <path
+              d="M1055.92 528.459C1055.92 237.152 819.767 1 528.459 1C237.152 1 1 237.152 1 528.459"
+              stroke="white"
+              stroke-width="0.845966"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_28859_2198"
+                x1="70.3691"
+                y1="299.626"
+                x2="987.396"
+                y2="299.626"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#0CBAF1" />
+                <stop offset="1" stop-color="#E95CE9" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <ul class="partners__list">
+            <li class="partners__item">
+              <img
+                src="../assets/img/partners/logo.svg"
+                alt=""
+              />
+            </li>
+            <li class="partners__item">
+              <img
+                src="../assets/img/partners/logo.svg"
+                alt=""
+              />
+            </li>
+            <li class="partners__item">
+              <img
+                src="../assets/img/partners/logo.svg"
+                alt=""
+              />
+            </li>
+            <li class="partners__item">
+              <img
+                src="../assets/img/partners/logo.svg"
+                alt=""
+              />
+            </li>
+            <li class="partners__item">
+              <img
+                src="../assets/img/partners/logo.svg"
+                alt=""
+              />
+            </li>
+            <li class="partners__item">
+              <img
+                src="../assets/img/partners/logo.svg"
+                alt=""
+              />
+            </li>
+          </ul>
+          <img
+            class="partners__image"
+            src="../assets/img/partners/main.png"
+            alt=""
+            width="707"
+            height="555"
+          />
+        </div>
+      </section>
+      <section
         class="container our-articles section"
         aria-labelledby="our-articles-heading"
       >
@@ -638,24 +760,25 @@
           </a>
         </header>
         <div class="our-articles__body">
-          <!-- fix: отделить стили слайдера от стилей секции  -->
           <div class="slider our-articles__slider">
             <h4 class="h4 our-articles__slider-title">
               Popular articles
             </h4>
-            <div
-              class="slide slide--active our-articles__slider-slide"
-            >
+            <div class="slide slide--active our-articles__slide">
               <img
-                class="slide__image"
+                class="our-articles__slide-image"
                 src="../assets/img/slider/slide-1.jpg"
                 alt="Happy guy in VR glasses playing racing"
                 width="637"
                 height="425"
               />
-              <div class="slide__text-content">
-                <div class="tag slide__tag">VR Games</div>
-                <div class="slide__text-content-body">
+              <div class="our-articles__slide-text-content">
+                <div class="tag our-articles__slide-tag">
+                  VR Games
+                </div>
+                <div
+                  class="our-articles__slide-text-content-body"
+                >
                   <h5 class="h5 slide__title">
                     Entertainment Goes Virtual: The Rise of VR
                     Gaming
@@ -669,17 +792,21 @@
                 </div>
               </div>
             </div>
-            <div class="slide our-articles__slider-slide">
+            <div class="slide our-articles__slide">
               <img
-                class="slide__image"
+                class="our-articles__slide-image"
                 src="../assets/img/slider/slide-2.jpg"
                 alt="Happy guy in VR glasses playing racing"
                 width="637"
                 height="425"
               />
-              <div class="slide__text-content">
-                <div class="tag slide__tag">VR Games</div>
-                <div class="slide__text-content-body">
+              <div class="our-articles__slide-text-content">
+                <div class="tag our-articles__slide-tag">
+                  VR Games
+                </div>
+                <div
+                  class="our-articles__slide-text-content-body"
+                >
                   <h5 class="h5 slide__title">Это норм чел</h5>
                   <a
                     href=""
@@ -690,17 +817,21 @@
                 </div>
               </div>
             </div>
-            <div class="slide our-articles__slider-slide">
+            <div class="slide our-articles__slide">
               <img
-                class="slide__image"
+                class="our-articles__slide-image"
                 src="../assets/img/slider/slide-3.jpg"
                 alt="Happy guy in VR glasses playing racing"
                 width="637"
                 height="425"
               />
-              <div class="slide__text-content">
-                <div class="tag slide__tag">VR Games</div>
-                <div class="slide__text-content-body">
+              <div class="our-articles__slide-text-content">
+                <div class="tag our-articles__slide-tag">
+                  VR Games
+                </div>
+                <div
+                  class="our-articles__slide-text-content-body"
+                >
                   <h5 class="h5 slide__title">
                     Это тоже норм чел
                   </h5>
@@ -713,17 +844,21 @@
                 </div>
               </div>
             </div>
-            <div class="slide our-articles__slider-slide">
+            <div class="slide our-articles__slide">
               <img
-                class="slide__image"
+                class="our-articles__slide-image"
                 src="../assets/img/slider/slide-4.jpg"
                 alt="Happy guy in VR glasses playing racing"
                 width="637"
                 height="425"
               />
-              <div class="slide__text-content">
-                <div class="tag slide__tag">VR Games</div>
-                <div class="slide__text-content-body">
+              <div class="our-articles__slide-text-content">
+                <div class="tag our-articles__slide-tag">
+                  VR Games
+                </div>
+                <div
+                  class="our-articles__slide-text-content-body"
+                >
                   <h5 class="h5 slide__title">
                     Это не норм чел
                   </h5>
@@ -736,28 +871,8 @@
                 </div>
               </div>
             </div>
-            <!-- fix: Пагинацию генерировать в js. Тест SliderCOre?  -->
-            <div class="slider__pagination">
-              <button
-                type="button"
-                class="slider__pagination-item slider__pagination-item--active"
-              ></button>
-              <button
-                type="button"
-                class="slider__pagination-item"
-              ></button>
-              <button
-                type="button"
-                class="slider__pagination-item"
-              ></button>
-              <button
-                type="button"
-                class="slider__pagination-item"
-              ></button>
-            </div>
+            <div class="slider__pagination"></div>
           </div>
-
-          <!-- fix: отделить стили блога от стилей секции -->
           <div class="blog our-articles__blog">
             <h4 class="h4 blog__title">Recent Article</h4>
             <div class="blog__content">
@@ -900,116 +1015,6 @@
               </article>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="section container partners">
-        <header class="partners__header">
-          <h2 class="h2 partners__subtitle">
-            Our Trusted Partners
-          </h2>
-          <h3 class="h3 partners__title">
-            Discover the Companies We Work With
-          </h3>
-        </header>
-        <div class="partners__body">
-          <svg
-            class="partners__circles"
-            width="1057"
-            height="529"
-            viewBox="0 0 1057 529"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M695.087 528.46C695.087 437.474 621.328 363.715 530.342 363.715C439.355 363.715 365.596 437.474 365.596 528.46"
-              stroke="white"
-              stroke-width="0.845966"
-            />
-            <path
-              d="M767.617 527.941C767.617 396.04 660.689 289.112 528.788 289.112C396.886 289.112 289.958 396.04 289.958 527.941"
-              stroke="white"
-              stroke-width="0.845966"
-            />
-            <path
-              d="M841.182 527.942C841.182 355.983 701.782 216.583 529.823 216.583C357.865 216.583 218.465 355.983 218.465 527.942"
-              stroke="white"
-              stroke-width="0.845966"
-            />
-            <path
-              d="M909.567 528.46C909.567 318.447 739.318 148.198 529.305 148.198C319.293 148.198 149.044 318.447 149.044 528.46"
-              stroke="white"
-              stroke-width="0.845966"
-            />
-            <path
-              id="partners-path"
-              d="M987.396 528.882C987.396 275.653 782.112 70.3691 528.882 70.3691C275.653 70.3691 70.3691 275.653 70.3691 528.882"
-              stroke="url(#paint0_linear_28859_2198)"
-              stroke-width="0.845966"
-            />
-            <path
-              d="M1055.92 528.459C1055.92 237.152 819.767 1 528.459 1C237.152 1 1 237.152 1 528.459"
-              stroke="white"
-              stroke-width="0.845966"
-            />
-            <defs>
-              <linearGradient
-                id="paint0_linear_28859_2198"
-                x1="70.3691"
-                y1="299.626"
-                x2="987.396"
-                y2="299.626"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#0CBAF1" />
-                <stop offset="1" stop-color="#E95CE9" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <ul class="partners__list">
-            <li class="partners__item">
-              <img
-                src="../assets/img/partners/logo.svg"
-                alt=""
-              />
-            </li>
-            <li class="partners__item">
-              <img
-                src="../assets/img/partners/logo.svg"
-                alt=""
-              />
-            </li>
-            <li class="partners__item">
-              <img
-                src="../assets/img/partners/logo.svg"
-                alt=""
-              />
-            </li>
-            <li class="partners__item">
-              <img
-                src="../assets/img/partners/logo.svg"
-                alt=""
-              />
-            </li>
-            <li class="partners__item">
-              <img
-                src="../assets/img/partners/logo.svg"
-                alt=""
-              />
-            </li>
-            <li class="partners__item">
-              <img
-                src="../assets/img/partners/logo.svg"
-                alt=""
-              />
-            </li>
-          </ul>
-          <img
-            class="partners__image"
-            src="../assets/img/partners/main.png"
-            alt=""
-            width="707"
-            height="555"
-          />
         </div>
       </section>
     </main>

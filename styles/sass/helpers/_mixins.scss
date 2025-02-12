@@ -136,10 +136,7 @@ $breakpoints: (
 /// 
 /// @param {center | between | around} $justify [center] - направление основной оси
 /// 
-/// 
 /// Миксин для создания flex-контейнера с возможностью настройки выравнивания элементов по оси X.
-/// 
-/// @param {String} $justify - Указывает, как выравнивать элементы по оси X.
 /// 
 @mixin flex($justify: center) {
   display: flex;
@@ -170,8 +167,8 @@ $breakpoints: (
 /// Миксин для добавления свечения на заднем фоне.
 /// На макете он определенной формы в SVG формате,
 /// используется псевдоэлемент `::after` для отображения SVG-фона.
-///
-// fix: мега срочно новое решение для этой светилки
+/// @param {boolean} $need-relative [false] - нужно ли добавить контейнеру position: relative
+// fix: на адаптиве съезжает
 @mixin light($need-relative: false) {
   @if $need-relative {
     position: relative;

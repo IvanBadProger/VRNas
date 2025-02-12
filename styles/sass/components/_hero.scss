@@ -19,7 +19,6 @@
     margin-top: rem(12);
   }
 
-  // fix: через padding и сделать БЭМ блок для кнопки (или хотя бы класс)
   &__button {
     width: rem(206);
     height: rem(50);
@@ -43,7 +42,6 @@
     &-client-img {
       position: relative;
 
-      // fix: а если элементов будет больше?
       &:nth-child(2) {
         left: -1%;
       }
@@ -78,7 +76,6 @@
     &-video-player {
       z-index: 1;
 
-      // fix: bottom -750% ?
       @include media(mobile) {
         position: absolute;
         bottom: -750%;
