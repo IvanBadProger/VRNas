@@ -1,16 +1,16 @@
-const tabs = document.querySelectorAll('.tab__title')
+const accordions = document.querySelectorAll('.accordion__title')
 
-function showText(tabId) {
+export function showText(accordionId) {
   const textId = document.querySelector(
-    `[data-text="${tabId}"]`
+    `[data-text="${accordionId}"]`
   )
     textId.classList.toggle('focus-text')
 }
 
-tabs.forEach((tab) => {
-  tab.addEventListener('click', function () {
-    tab.classList.toggle('focus-tab') === 'focus-tab'
-    const tabId = this.dataset.tabId
-    showText(tabId)
+accordions.forEach((accordion) => {
+  accordion.addEventListener('click', function () {
+    accordion.classList.toggle('focus-accordion') === 'focus-accordion'
+    const accordionId = this.dataset.accordionId
+    showText(accordionId)
   })
 })

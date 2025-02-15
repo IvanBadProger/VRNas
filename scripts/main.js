@@ -2,6 +2,7 @@ import { initSlider } from './slider.js'
 import { initSolarSystem } from './solar-system-animation.js'
 import { initCheckIcon } from './check-icons-animation.js'
 import { preloaderStart } from './preloader.js'
+import { showText} from './drop-down-text.js'
 
 /**
  * Объект с элементами-триггерами, при видимости которых должны срабатывать соответствующие анимации
@@ -61,4 +62,5 @@ observer.observe(animationTriggers.checkIcon)
 observer.observe(animationTriggers.solarSystem)
 
 initSlider()
+showText()
 // preloaderStart()

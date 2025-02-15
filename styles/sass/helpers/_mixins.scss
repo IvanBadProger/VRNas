@@ -195,3 +195,23 @@ $breakpoints: (
     mask-composite: exclude;
   }
 }
+
+/// Миксин для анимации border
+@mixin border-border-animation {
+  position: relative;
+  border-bottom: 1px solid $white-opacity;
+  cursor: pointer;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $white;
+    box-shadow: $border-glow-effect;
+    transition-duration: $transition-duration;
+  }
+}

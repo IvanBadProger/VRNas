@@ -291,7 +291,6 @@ body {
 }
 
 .button {
-  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
@@ -651,8 +650,8 @@ body {
 .hero__extra-clients-text::before {
   content: url("../../../assets/svg/hero/hero_line.svg");
   position: absolute;
-  bottom: -45%;
-  left: -15%;
+  bottom: -30%;
+  left: -5%;
 }
 .hero__extra-video-player {
   z-index: 1;
@@ -1001,21 +1000,21 @@ body {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-.tab__content:not(:last-child) {
+.accordion__content:not(:last-child) {
   margin-bottom: 3rem;
 }
 
-.tab__title {
+.accordion__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding-bottom: 0.625rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.35);
   cursor: pointer;
   z-index: 1;
+  padding-bottom: 0.625rem;
 }
-.tab__title::after {
+.accordion__title::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -1027,10 +1026,10 @@ body {
   transition-duration: 0.3s;
 }
 
-.focus-tab {
+.focus-accordion {
   border-bottom-color: transparent;
 }
-.focus-tab::after {
+.focus-accordion::after {
   width: 100%;
 }
 
@@ -1040,11 +1039,11 @@ body {
   transition-duration: 0.3s;
 }
 
-.focus-tab .circumflex {
+.focus-accordion .circumflex {
   rotate: 0deg;
 }
 
-.tab__text {
+.accordion__text {
   padding-top: 0.625rem;
   opacity: 0;
   transform: translateY(-30px);

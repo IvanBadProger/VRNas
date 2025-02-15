@@ -32,6 +32,7 @@ $border-gradient: linear-gradient(to bottom left, $white 0%, transparent 100%);
 $border-linear: linear-gradient(to right, $black-40 0%, transparent 100%) 10 stretch;
 // Дополнительный градиент, используется в специфических случаях
 $border-gradient-to-left: linear-gradient(to left, $black-40 0%, transparent 100%);
+$border-glow-effect: 0 0 8px rgba(255, 255, 255, 0.8);
 $gradient-to-bottom: linear-gradient(180deg, rgba(50, 70, 188, 0) 0%, #192883 100%);
 
 $transition-duration: 0.3s;
