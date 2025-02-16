@@ -1,12 +1,14 @@
 function setDashArray(path) {
   const length = path.getTotalLength()
+
   path.style.strokeDasharray = length
   path.style.strokeDashoffset = length
+
   return length
 }
 
-const preloader = document.querySelector('.preloader')
 const main = document.querySelector('main')
+const preloader = document.querySelector('.preloader')
 const paths = preloader.querySelectorAll('path')
 paths.forEach((path) => setDashArray(path))
 
@@ -49,7 +51,7 @@ const animeConfigs = {
   },
 }
 
-export function preloaderStart() {
+export function startPreloader() {
   anime
     .timeline({
       begin: () => {

@@ -9,6 +9,7 @@ const selectors = {
   planets: '[data-solar-system=planet]',
   userButtons: '.testimoni__user',
   userAvatars: '.testimoni__avatar',
+  containerSelector: '.testimonial__body',
 }
 
 const classes = {
@@ -20,9 +21,11 @@ const planets = document.querySelectorAll(selectors.planets)
 const userButtons = document.querySelectorAll(
   selectors.userButtons
 )
-
 const userAvatars = document.querySelectorAll(
   selectors.userAvatars
+)
+const container = document.querySelector(
+  selectors.containerSelector
 )
 
 const ROTATE_ANGLE = 0.35
@@ -53,11 +56,7 @@ const animationUsers = {
  * Функция задает инлайновые стили width и height уникальные для каждого элемента массива orbits
  * (была еще мысль орбиты полностью генерировать через js, но мы же дефолтную верстку делаем, а не через шаблонизаторы)
  */
-function setOrbitSize(
-  orbitSizeBase = 500,
-  containerSelector = '.testimonial__body'
-) {
-  const container = document.querySelector(containerSelector)
+function setOrbitSize(orbitSizeBase = 500) {
   const maxOrbitSize = container.clientHeight
   const orbitsLength = orbits.length
   const orbitSizeStep =
@@ -149,7 +148,7 @@ function updatePlanetAndUserPosition(index, step = 0.02) {
 /**
  * Функция инициализатор анимации: устанавливает размер орбит, запускает планеты по орбитам и вокруг своей оси
  */
-export function initSolarSystem() {
+export function startSolarSystem() {
   setOrbitSize()
   anime(animationPlanets)
   anime(animationUsers)

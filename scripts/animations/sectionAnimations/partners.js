@@ -35,6 +35,7 @@ const getPathPositions = (pathLength, totalItems, padding) => {
 
 const calculateScaling = (container, svg) => {
   const rect = container.getBoundingClientRect()
+
   return {
     x: rect.width / svg.viewBox.baseVal.width,
     y: rect.height / svg.viewBox.baseVal.height,
@@ -71,6 +72,7 @@ const updatePositions = () => {
 
   positions.forEach((position, index) => {
     const point = elements.path.getPointAtLength(position)
+
     updateLogoPosition(
       elements.logos[index],
       point,
@@ -80,30 +82,28 @@ const updatePositions = () => {
   })
 }
 
-const createCirclesAnimation = () => ({
+const circlesAnimation = {
   targets: elements.circles,
   opacity: [0, 1],
   easing: config.circles.easing,
   duration: config.circles.duration,
   delay: anime.stagger(config.circles.staggerDelay),
-})
+}
 
-const createLogosAnimation = () => ({
+const logosAnimation = {
   targets: elements.logos,
   opacity: [0, 1],
   scale: [0, 1],
   easing: config.easing,
   duration: config.duration,
   delay: anime.stagger(config.staggerDelay),
-})
-
-export function initPartners() {
-  updatePositions()
-
-  const timeline = anime.timeline()
-  timeline
-    .add(createCirclesAnimation())
-    .add(createLogosAnimation(), '-=200')
 }
 
-window.addEventListener('resize', updatePositions)
+export function startPartners() {
+  updatePositions()
+
+  anime
+    .timeline()
+    .add(circlesAnimation)
+    .add(logosAnimation, '-=200')
+}
