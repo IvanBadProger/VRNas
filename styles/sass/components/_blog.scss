@@ -1,6 +1,5 @@
 @use '../helpers' as *;
 
-// fix: пересмотреть подход
 .blog {
   display: inline-block;
   padding-top: rem(32);
@@ -15,7 +14,7 @@
   }
 
   @include media(tablet) {
-    padding: rem(16);
+    padding-top: rem(16);
     padding-inline: rem(20);
   }
 
@@ -25,8 +24,8 @@
 
   &__content {
     max-height: rem(750);
-    overflow-y: scroll;
     padding-right: fluid(50, 0);
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
       width: 2px;
@@ -46,14 +45,13 @@
       "image description button"
       "line line line";
     gap: 0.5rem rem(21);
-    justify-content: space-between;
     align-items: center;
+    color: $white;
 
     &-image {
       grid-area: image;
       height: 100%;
       max-width: rem(142);
-      max-height: rem(91);
     }
 
     &-tag {
@@ -64,7 +62,6 @@
     &-description {
       grid-area: description;
       justify-self: start;
-      color: $white;
 
       @include media(mobile) {
         font-weight: 700;

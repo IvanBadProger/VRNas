@@ -1,6 +1,7 @@
 const selectors = {
   slides: '.slide',
   paginationItems: '.slider__pagination-item',
+  paginaton: '.slider__pagination',
 }
 
 const classes = {
@@ -8,11 +9,16 @@ const classes = {
   paginationItemActive: 'slider__pagination-item--active',
 }
 
-const slides = document.querySelectorAll(selectors.slides)
-const paginationItems = document.querySelectorAll(
-  selectors.paginationItems
-)
-let activeIndex = 0
+const elements = {
+  slides: document.querySelectorAll(selectors.slides),
+  pagination: document.querySelector(selectors.paginaton),
+  paginationItems: [],
+}
+
+const state = {
+  activeIndex: 0,
+  slidesCount: elements.slides.length,
+}
 
 /**
  * Устанавливает активный класс слайду по index
@@ -20,11 +26,11 @@ let activeIndex = 0
  * @param {number} index - индекс слайда, который нужно сделать активным
  */
 function setActiveSlide(index) {
-  slides.forEach((slide) => {
+  elements.slides.forEach((slide) => {
     slide.classList.remove(classes.slideActive)
   })
 
-  slides[index].classList.add(classes.slideActive)
+  elements.slides[index].classList.add(classes.slideActive)
 }
 
 /**
@@ -33,34 +39,48 @@ function setActiveSlide(index) {
  * @param {number} index - индекс элемента пагинации, который нужно сделать активным
  */
 function setActivePaginationItem(index) {
-  paginationItems.forEach((item) => {
+  elements.paginationItems.forEach((item) => {
     item.classList.remove(classes.paginationItemActive)
   })
 
-  paginationItems[index].classList.add(
+  elements.paginationItems[index].classList.add(
     classes.paginationItemActive
   )
 }
-/**
- * Запускает автопролистывание слайдов
- */
-function autoPlay() {}
+
+function updateSlider() {
+  setActivePaginationItem(state.activeIndex)
+  setActiveSlide(state.activeIndex)
+}
+
+function createPaginationBullet(index) {
+  const bullet = document.createElement('button')
+  const text = `Перейти к слайду ${index}`
+
+  bullet.classList.add('slider__pagination-item')
+  bullet.setAttribute('type', 'button')
+  bullet.setAttribute('aria-label', text)
+  bullet.setAttribute('title', text)
+  bullet.addEventListener('click', () =>
+    paginationItemClick(index)
+  )
+  elements.paginationItems.push(bullet)
+  elements.pagination.appendChild(bullet)
+}
 
 /**
  * Обработчик клика по элементу пагинации. Сделает элемент по которому кликнули активным
  *
- * @param {MouseEvent<HTMLButtonElement>} event - событие клика мыши
  */
-function paginationItemClick(event) {
-  const clickedIndex = [...paginationItems].indexOf(event.target)
+function paginationItemClick(index) {
+  state.activeIndex = index
+  updateSlider()
+}
 
-  if (clickedIndex === -1) {
-    console.log('clickedIndex = -1')
-  }
-
-  setActiveSlide(clickedIndex)
-  setActivePaginationItem(clickedIndex)
-  activeIndex = clickedIndex
+function initializePagination() {
+  elements.slides.forEach((_, index) => {
+    createPaginationBullet(index)
+  })
 }
 
 /**
@@ -69,17 +89,17 @@ function paginationItemClick(event) {
  * @param {1 | -1} direction - направление движения слайдов
  */
 function changeSlide(direction) {
-  activeIndex =
-    (activeIndex + direction + slides.length) % slides.length
+  state.activeIndex =
+    (state.activeIndex + direction + elements.slides.length) %
+    elements.slides.length
 
-  setActivePaginationItem(activeIndex)
-  setActiveSlide(activeIndex)
+  updateSlider()
 }
 
 /**
  * Обработчик событий нажатия на клавиши
  */
-function keyBind() {
+function keyEventsBind() {
   document.addEventListener('keydown', (event) => {
     if (event.code === 'ArrowLeft') {
       changeSlide(-1)
@@ -94,12 +114,8 @@ function keyBind() {
  * Инициализатор слайдера. Запускает его работу
  */
 export function initSlider() {
-  paginationItems.forEach((item) => {
-    item.addEventListener('click', paginationItemClick)
-  })
-
-  setActivePaginationItem(activeIndex)
-  setActiveSlide(activeIndex)
-  // autoPlay()
-  keyBind()
+  initializePagination()
+  updateSlider()
+  // autoplayStart()
+  keyEventsBind()
 }

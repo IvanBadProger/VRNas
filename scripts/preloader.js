@@ -43,12 +43,23 @@ const animeConfigs = {
     translateY: [10, 0],
     easing: 'linear',
     duration: 500,
+    begin: () => {
+      main.style.display = 'block'
+    },
   },
 }
 
 export function preloaderStart() {
   anime
-    .timeline()
+    .timeline({
+      begin: () => {
+        document.body.classList.add('isLock')
+        main.style.display = 'none'
+      },
+      complete: () => {
+        document.body.classList.remove('isLock')
+      },
+    })
     .add(animeConfigs.strokePaint)
     .add(animeConfigs.fillOpacity)
     .add(animeConfigs.preloaderHide)

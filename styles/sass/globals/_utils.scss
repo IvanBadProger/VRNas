@@ -1,3 +1,4 @@
+@use '../helpers' as *;
 /// Всеразличные утилитарные классы
 
 /// Класс контентного контейнера. Ширина определяется переменной --container-wigth,
@@ -19,4 +20,10 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.check-icon {
+  @include square(16px);
+
+  fill: url('../../../assets/svg/sprite.svg#check-icon-gradient');
 }

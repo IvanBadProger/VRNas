@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+
+.solar-system {
+  @include light(true);
+
+  &__main-image {
+    @include abs-center();
+
+    width: fluid(618, 499);
+    pointer-events: none;
+  }
+
+  &__planet {
+    @include abs-center();
+    pointer-events: none;
+  }
+
+  &__orbit {
+    @include abs-center();
+
+    border-radius: 50%;
+    border: 1px solid $black-40;
+    pointer-events: none;
+  }
+}
