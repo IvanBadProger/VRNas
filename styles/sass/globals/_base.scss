@@ -109,13 +109,18 @@ body {
 /// Класс для кнопок с градиентным фоном
 .button--primary {
   font-weight: 700;
-  font-size: rem(16);
-  letter-spacing: 0.11em;
-  line-height: rem(14);
   text-transform: uppercase;
   color: $white;
+  letter-spacing: 0.11em;
+  line-height: 100%;
+  padding-block: rem(18);
+  padding-inline: rem(38);
   outline: none;
   border: none;
+}
+
+/// Класс для кнопок с градиентным фоном
+.button--primary {
   background: $color-gradient;
 }
 

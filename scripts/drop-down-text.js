@@ -1,22 +1,16 @@
-const tabs = document.querySelectorAll('.choose-us__tab-title')
+const accordions = document.querySelectorAll('.accordion__title')
 
-function showText(targetId) {
+export function showText(accordionId) {
   const textId = document.querySelector(
-    `[data-text="${targetId}"]`
+    `[data-text="${accordionId}"]`
   )
-  if (textId) {
     textId.classList.toggle('focus-text')
-  }
 }
 
-tabs.forEach((tab) => {
-  tab.addEventListener('click', function () {
-    if (tab.classList.contains('focus-tab')) {
-      tab.classList.remove('focus-tab')
-    } else {
-      tab.classList.add('focus-tab')
-    }
-    const targetId = this.dataset.targetId
-    showText(targetId)
+accordions.forEach((accordion) => {
+  accordion.addEventListener('click', function () {
+    accordion.classList.toggle('focus-accordion') === 'focus-accordion'
+    const accordionId = this.dataset.accordionId
+    showText(accordionId)
   })
 })

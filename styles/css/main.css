@@ -306,15 +306,19 @@ body {
   font-weight: 300;
 }
 
-.button--primary {
+.button {
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.11em;
-  line-height: 0.875rem;
   text-transform: uppercase;
   color: #fff;
+  letter-spacing: 0.11em;
+  line-height: 100%;
+  padding-block: 1.125rem;
+  padding-inline: 2.375rem;
   outline: none;
   border: none;
+}
+
+.button--primary {
   background: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
 }
 
@@ -561,6 +565,81 @@ body {
 }
 .about-us__list-item:not(:last-child) {
   margin-bottom: 0.875rem;
+
+}
+.about-us__button {
+  margin-top: 2rem;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+}
+.check-icon path {
+  fill: url("#paint0_linear_28530_2192");
+}
+
+.hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 1280px) {
+  .hero__content {
+    align-items: flex-end;
+  }
+}
+@media (max-width: 750px) {
+  .hero__content {
+    flex-direction: column;
+  }
+}
+.hero__description {
+  margin-top: 0.75rem;
+}
+.hero__button {
+  margin-top: 2rem;
+}
+.hero__extra {
+  display: flex;
+  align-items: center;
+  margin-top: 2.625rem;
+  position: relative;
+}
+@media (max-width: 1280px) {
+  .hero__extra {
+    margin-bottom: 1rem;
+  }
+}
+.hero__extra-clients-img {
+  display: contents;
+}
+.hero__extra-client-img {
+  border-radius: 50%;
+  margin-left: -0.625rem;
+}
+.hero__extra-clients-text {
+  text-transform: capitalize;
+  margin-right: clamp(0rem, -1.5108471074rem + 6.1983471074vw, 4.6875rem);
+  margin-left: 1rem;
+  position: relative;
+}
+.hero__extra-clients-text::after {
+  content: "32k+";
+  color: #fff;
+  font-weight: 600;
+  position: absolute;
+  left: 0;
+}
+.hero__extra-clients-text::before {
+  content: url("../../../assets/svg/hero/hero_line.svg");
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+}
+.hero__extra-video-player {
+  z-index: 1;
+
 }
 .about-us__button {
   margin-top: 2rem;
@@ -575,6 +654,7 @@ body {
   transform: translateX(-50%);
   top: 10%;
   pointer-events: none;
+
 }
 @media (max-width: 1280px) {
   .testimonial__header {
@@ -727,57 +807,6 @@ body {
 }
 .choose-us__title {
   margin-block: 0.75rem 2rem;
-}
-.choose-us__tab-content:not(:last-child) {
-  margin-bottom: 3rem;
-}
-.choose-us__tab-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding-bottom: 0.625rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  z-index: 1;
-}
-.choose-us__tab-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #fff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-  transition-duration: 0.3s;
-}
-.choose-us .focus-tab {
-  border-bottom-color: transparent;
-}
-.choose-us .focus-tab::after {
-  width: 100%;
-}
-.choose-us .circumflex {
-  font-size: 0.625rem;
-  rotate: 180deg;
-  transition-duration: 0.3s;
-}
-.choose-us .focus-tab .circumflex {
-  rotate: 0deg;
-}
-.choose-us__tab-text {
-  padding-top: 0.625rem;
-  opacity: 0;
-  transform: translateY(-30px);
-  transition-duration: 0.3s;
-  max-height: 0;
-  overflow: hidden;
-}
-.choose-us .focus-text {
-  opacity: 1;
-  transform: translateX(0);
-  max-height: 300px;
 }
 .choose-us__image {
   --image-width: clamp(26.875rem, 24.2561983471rem + 10.7438016529vw, 35rem);
@@ -1025,6 +1054,62 @@ body {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
+.accordion__content:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.accordion__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  z-index: 1;
+  padding-bottom: 0.625rem;
+}
+.accordion__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  transition-duration: 0.3s;
+}
+
+.focus-accordion {
+  border-bottom-color: transparent;
+}
+.focus-accordion::after {
+  width: 100%;
+}
+
+.circumflex {
+  font-size: 0.625rem;
+  rotate: 180deg;
+  transition-duration: 0.3s;
+}
+
+.focus-accordion .circumflex {
+  rotate: 0deg;
+}
+
+.accordion__text {
+  padding-top: 0.625rem;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition-duration: 0.3s;
+  max-height: 0;
+}
+
+.focus-text {
+  opacity: 1;
+  transform: translateX(0);
+  max-height: 500px;
+
 .partners__body {
   position: relative;
   width: 100%;
@@ -1062,4 +1147,5 @@ body {
   bottom: 0;
   width: clamp(18rem, 10.7076446281rem + 29.9173553719vw, 40.625rem);
   pointer-events: none;
+
 }/*# sourceMappingURL=main.css.map */

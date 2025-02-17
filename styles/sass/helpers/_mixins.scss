@@ -203,6 +203,25 @@ $breakpoints: (
   }
 }
 
+/// Миксин для анимации border
+@mixin border-border-animation {
+  position: relative;
+  border-bottom: 1px solid $white-opacity-3;
+  cursor: pointer;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $white;
+    box-shadow: $border-glow-effect;
+    transition-duration: $transition-duration;
+  }
+}
 
 /// Миксин для создания градиентной рамки со скруглениями.
 // fix: цвет по умолчанию не то, что на макете, должен быть black-60, но это решенеие не дружит с прозрачностью
