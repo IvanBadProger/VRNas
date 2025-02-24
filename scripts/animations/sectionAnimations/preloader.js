@@ -1,69 +1,190 @@
-function setDashArray(path) {
-  const length = path.getTotalLength()
-
-  path.style.strokeDasharray = length
-  path.style.strokeDashoffset = length
-
-  return length
-}
-
-const main = document.querySelector('main')
-const preloader = document.querySelector('.preloader')
-const paths = preloader.querySelectorAll('path')
-paths.forEach((path) => setDashArray(path))
-
-const animeConfigs = {
-  strokePaint: {
-    targets: paths,
-    strokeDashoffset: [anime.setDashoffset, 0],
+const CONFIG = {
+  stroke: {
     duration: 2000,
     easing: 'easeInOutCubic',
   },
-  fillOpacity: {
-    targets: paths,
-    fillOpacity: [{ value: 1, duration: 500 }],
-    strokeWidth: [
-      { value: 0.5, duration: 100 },
-      { value: 0, duration: 100 },
-    ],
+  fill: {
+    opacity: {
+      duration: 500,
+    },
+    stroke: {
+      thin: { value: 0.5, duration: 100 },
+      hide: { value: 0, duration: 100 },
+    },
     easing: 'easeInOutQuad',
-    delay: anime.stagger(50),
+    staggerDelay: 50,
     endDelay: 200,
   },
-  preloaderHide: {
-    targets: paths,
-    opacity: [1, 0],
+  fade: {
     easing: 'spring',
-    delay: anime.stagger(100),
-    complete: function () {
-      preloader.style.display = 'none'
-    },
+    staggerDelay: 100,
   },
-  showMain: {
-    targets: main,
-    opacity: [0, 1],
-    translateY: [10, 0],
-    easing: 'linear',
+  main: {
     duration: 500,
-    begin: () => {
-      main.style.display = 'block'
+    easing: 'linear',
+    translateY: {
+      from: 10,
+      to: 0,
     },
   },
 }
 
-export function startPreloader() {
-  anime
-    .timeline({
+/**
+ * Класс управления анимацией прелоадера
+ * @class PreloaderAnimation
+ */
+class PreloaderAnimation {
+  constructor() {
+    this.elements = {
+      main: document.querySelector('main'),
+      preloader: document.querySelector('.preloader'),
+      paths: document.querySelectorAll('.preloader path'),
+    }
+
+    this.initializePaths()
+    this.createAnimationConfigs()
+  }
+
+  /**
+   * Инициализирует SVG пути установкой stroke-dash параметров
+   * @private
+   */
+  initializePaths() {
+    this.elements.paths.forEach((path) => {
+      const length = path.getTotalLength()
+      path.style.strokeDasharray = length
+      path.style.strokeDashoffset = length
+    })
+  }
+
+  /**
+   * Создает конфигурации для всех анимаций
+   * @private
+   */
+  createAnimationConfigs() {
+    /**
+     * @private
+     * @property {Object} animations - Конфигурации анимаций
+     */
+    this.animations = {
+      stroke: this.createStrokeAnimation(),
+      fill: this.createFillAnimation(),
+      hide: this.createHideAnimation(),
+      showMain: this.createMainAnimation(),
+    }
+  }
+
+  /**
+   * Создает конфигурацию анимации отрисовки линий
+   * @private
+   * @returns {Object} Конфигурация анимации
+   */
+  createStrokeAnimation() {
+    return {
+      targets: this.elements.paths,
+      strokeDashoffset: [anime.setDashoffset, 0],
+      duration: CONFIG.stroke.duration,
+      easing: CONFIG.stroke.easing,
+    }
+  }
+
+  /**
+   * Создает конфигурацию анимации заполнения
+   * @private
+   * @returns {Object} Конфигурация анимации
+   */
+  createFillAnimation() {
+    return {
+      targets: this.elements.paths,
+      fillOpacity: [
+        {
+          value: 1,
+          duration: CONFIG.fill.opacity.duration,
+        },
+      ],
+      strokeWidth: [
+        CONFIG.fill.stroke.thin,
+        CONFIG.fill.stroke.hide,
+      ],
+      easing: CONFIG.fill.easing,
+      delay: anime.stagger(CONFIG.fill.staggerDelay),
+      endDelay: CONFIG.fill.endDelay,
+    }
+  }
+
+  /**
+   * Создает конфигурацию анимации скрытия прелоадера
+   * @private
+   * @returns {Object} Конфигурация анимации
+   */
+  createHideAnimation() {
+    return {
+      targets: this.elements.paths,
+      opacity: [1, 0],
+      easing: CONFIG.fade.easing,
+      delay: anime.stagger(CONFIG.fade.staggerDelay),
+      complete: () => {
+        this.elements.preloader.style.display = 'none'
+      },
+    }
+  }
+
+  /**
+   * Создает конфигурацию анимации показа основного контента
+   * @private
+   * @returns {Object} Конфигурация анимации
+   */
+  createMainAnimation() {
+    return {
+      targets: this.elements.main,
+      opacity: [0, 1],
+      translateY: [
+        CONFIG.main.translateY.from,
+        CONFIG.main.translateY.to,
+      ],
+      easing: CONFIG.main.easing,
+      duration: CONFIG.main.duration,
+      begin: () => {
+        this.elements.main.style.display = 'block'
+      },
+    }
+  }
+
+  /**
+   * Создает временную линию анимации
+   * @private
+   * @returns {Object} Временная линия anime.js
+   */
+  createTimeline() {
+    return anime.timeline({
       begin: () => {
         document.body.classList.add('isLock')
-        main.style.display = 'none'
+        this.elements.main.style.display = 'none'
       },
       complete: () => {
         document.body.classList.remove('isLock')
       },
     })
-    .add(animeConfigs.strokePaint)
-    .add(animeConfigs.fillOpacity)
-    .add(animeConfigs.preloaderHide)
-    .add(animeConfigs.showMain)
+  }
+  /**
+   * Запускает анимацию прелоадера
+   * @public
+   */
+  start() {
+    this.createTimeline()
+      .add(this.animations.stroke)
+      .add(this.animations.fill)
+      .add(this.animations.hide)
+      .add(this.animations.showMain)
+  }
+}
+
+/**
+ * Инициализирует и запускает анимацию прелоадера
+ * @function startPreloader
+ * @exports
+ */
+export function startPreloader() {
+  const preloader = new PreloaderAnimation()
+  preloader.start()
 }

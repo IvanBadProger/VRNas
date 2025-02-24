@@ -1,8 +1,10 @@
 import { startTypewriter } from '../baseAnimations/index.js'
 
-const title = '.hero__title'
-const desc = '.hero__description'
-const number = '.hero__extra-clients-text'
+const selectors = {
+  title: '.hero__title',
+  desc: '.hero__description',
+  number: '.hero__extra-clients-text',
+}
 
 function startNumberClimb(selector) {
   const element = document.querySelector(selector)
@@ -32,7 +34,13 @@ function startNumberClimb(selector) {
 export function startHeroAnimations() {
   anime
     .timeline()
-    .add(startTypewriter(title))
-    .add(startTypewriter(desc))
-    .add(startNumberClimb(number))
+    .add(
+      startTypewriter(selectors.title, { showCursor: true }),
+      '-=300'
+    )
+    .add(
+      startTypewriter(selectors.desc, { showCursor: true }),
+      '-=300'
+    )
+    .add(startNumberClimb(selectors.number), '-=300')
 }

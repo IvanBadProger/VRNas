@@ -1,4 +1,4 @@
-const checkIconConfig = {
+const defaultConfig = {
   easing: 'easeInOutExpo',
   duration: 1000,
   delay: anime.stagger(300),
@@ -38,6 +38,6 @@ export function startMorph(selector, morphPoints) {
   anime({
     targets: selector,
     d: morphPoints,
-    ...checkIconConfig,
+    ...defaultConfig,
   })
 }

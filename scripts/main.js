@@ -1,9 +1,9 @@
-import { initSlider } from './slider.js'
+import { initSlider } from './modules/slider.js'
 import { startObserver } from './animations/observer.js'
-import { preloaderStart } from './preloader.js'
-import { showText } from './drop-down-text.js'
+import { initializeAccordion } from './modules/drop-down-text.js'
+import { startPreloader } from './animations/sectionAnimations/preloader.js'
 
 startObserver()
+initializeAccordion()
 initSlider()
-showText()
-// preloaderStart()
+startPreloader()
