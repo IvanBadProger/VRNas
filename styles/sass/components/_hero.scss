@@ -1,16 +1,14 @@
 @use '../helpers' as *;
 
 .hero {
-  &__content {
-    @include flex(between);
+  @include flex(between);
 
-    @include media(laptop) {
-      align-items: flex-end;
-    }
+  @include media(laptop) {
+    align-items: flex-end;
+  }
 
-    @include media(mobile) {
-      flex-direction: column;
-    }
+  @include media(mobile) {
+    flex-direction: column;
   }
 
   &__description {
@@ -46,14 +44,6 @@
       margin-left: 1rem;
       position: relative;
 
-      &::after {
-        content: '32k+';
-        color: $white;
-        font-weight: 600;
-        position: absolute;
-        left: 0;
-      }
-
       &::before {
         content: url('../../../assets/svg/hero/hero_line.svg');
         position: absolute;
@@ -76,7 +66,6 @@
 
   &__media {
     @include light;
-
     position: relative;
 
     @include media(mobile) {

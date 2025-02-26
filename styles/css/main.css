@@ -286,6 +286,18 @@ body {
   line-height: 1.2;
 }
 
+.h4 {
+  font-weight: 600;
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+}
+
+.h5 {
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.0082644628rem + 0.9917355372vw, 2rem);
+  line-height: 143%;
+}
+
 .p {
   font-weight: 300;
 }
@@ -304,18 +316,28 @@ body {
 
 .button--primary {
   background: linear-gradient(to right, #19B5F1 0%, #CA6AEB 100%);
+  background-size: 100% 100%;
+  background-position: 100% 50%;
+  transition-duration: 0.3s;
+  cursor: pointer;
 }
-
-.h4 {
-  font-weight: 600;
-  font-size: 1.75rem;
-  letter-spacing: -0.01em;
+@media (any-hover: hover) {
+  .button--primary:hover {
+    background-size: 200% 100%;
+    background-position: 201% 50%;
+    border-radius: 1rem;
+    transform: scale(1.02);
+    color: #252532;
+  }
 }
-
-.h5 {
-  font-weight: 600;
-  font-size: clamp(1.25rem, 1.0082644628rem + 0.9917355372vw, 2rem);
-  line-height: 143%;
+@media (any-hover: none) {
+  .button--primary:active {
+    background-size: 200% 100%;
+    background-position: 201% 50%;
+    border-radius: 1rem;
+    transform: scale(1.02);
+    color: #252532;
+  }
 }
 
 .button-outline--arrow-right::before {
@@ -327,6 +349,11 @@ body {
 
 .section {
   margin-top: var(--section-space);
+}
+
+.text-white {
+  color: #fff;
+  font-weight: 600;
 }
 
 .preloader {
@@ -595,18 +622,18 @@ body {
   fill: url("#paint0_linear_28530_2192");
 }
 
-.hero__content {
+.hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 @media (max-width: 1280px) {
-  .hero__content {
+  .hero {
     align-items: flex-end;
   }
 }
 @media (max-width: 750px) {
-  .hero__content {
+  .hero {
     flex-direction: column;
   }
 }
@@ -639,13 +666,6 @@ body {
   margin-right: clamp(0rem, -1.5108471074rem + 6.1983471074vw, 4.6875rem);
   margin-left: 1rem;
   position: relative;
-}
-.hero__extra-clients-text::after {
-  content: "32k+";
-  color: #fff;
-  font-weight: 600;
-  position: absolute;
-  left: 0;
 }
 .hero__extra-clients-text::before {
   content: url("../../../assets/svg/hero/hero_line.svg");
@@ -693,42 +713,42 @@ body {
   }
 }
 
-.hero__banner {
+.banner {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  -moz-column-gap: 3.125rem;
+       column-gap: 3.125rem;
   background-color: #252532;
   border: 1px solid transparent;
   -o-border-image: linear-gradient(to right, rgba(255, 255, 255, 0.17) 0%, transparent 100%) 10 stretch;
      border-image: linear-gradient(to right, rgba(255, 255, 255, 0.17) 0%, transparent 100%) 10 stretch;
   padding: 2.625rem 4rem 3.3125rem 4rem;
-  -moz-column-gap: 3.125rem;
-       column-gap: 3.125rem;
 }
 @media (max-width: 1000px) {
-  .hero__banner {
+  .banner {
     flex-direction: column;
     gap: 3.125rem;
   }
 }
 @media (max-width: 750px) {
-  .hero__banner {
+  .banner {
     padding: 2.25rem;
   }
 }
-.hero__banner-title {
+.banner__title {
   font-size: 1.25rem;
   font-weight: 400;
   color: #fff;
 }
-.hero__banner-description {
+.banner__description {
   font-size: 1rem;
-  line-height: 200%;
+  line-height: 2;
 }
-.hero__banner-icon {
-  margin-bottom: 2.625rem;
+.banner__icon {
+  margin-bottom: 1.5rem;
 }
-.hero__banner-description {
+.banner__description {
   margin-top: 0.75rem;
 }
 
