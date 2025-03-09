@@ -2,7 +2,6 @@
 
 .choose-us {
   @include flex(between);
-
   column-gap: 3rem;
 
   @include media(tablet) {

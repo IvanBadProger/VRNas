@@ -122,6 +122,20 @@ body {
 /// Класс для кнопок с градиентным фоном
 .button--primary {
   background: $color-gradient;
+  background-size: 100% 100%;
+  background-position: 100% 50%;
+  transition-duration: $transition-duration;
+  cursor: pointer;
+  @include hover() {
+    background-size: 200% 100%;
+    background-position: 201% 50%;
+    border-radius: 1rem;
+    transform: scale(1.02);
+    color: $black-80;
+  }
+}
+
+.button-outline--arrow-right {
 }
 
 .button--arrow-right {
@@ -135,4 +149,9 @@ body {
 
 .section {
   margin-top: var(--section-space);
+}
+
+.text-white {
+  color: $white;
+  font-weight: 600;
 }

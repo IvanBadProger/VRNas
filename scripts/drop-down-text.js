@@ -1,6 +1,6 @@
 const accordions = document.querySelectorAll('.accordion__title')
 
-export function showText(accordionId) {
+export function initAccordions(accordionId) {
   const textId = document.querySelector(
     `[data-text="${accordionId}"]`
   )
@@ -11,6 +11,6 @@ accordions.forEach((accordion) => {
   accordion.addEventListener('click', function () {
     accordion.classList.toggle('focus-accordion') === 'focus-accordion'
     const accordionId = this.dataset.accordionId
-    showText(accordionId)
+    initAccordions(accordionId)
   })
 })
