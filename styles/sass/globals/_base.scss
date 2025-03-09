@@ -6,7 +6,6 @@
   @media (min-width: 1520px) {
     --section-space: #{rem(125)};
     --container-width: 80vw;
-    --font-size-base: 18px;
   }
 
   @include media(laptop-large) {
@@ -19,12 +18,10 @@
 
   @include media(tablet) {
     --section-space: #{rem(50)};
-    --font-size-base: 14px;
     --container-width: 700px;
   }
 
   @include media(mobile) {
-    --font-size-base: 12px;
     --container-width: 90vw;
   }
 }
@@ -32,10 +29,14 @@
 body {
   font-family: 'Chakra Petch';
   background-color: $black-100;
-  color: $grey-2;
+  color: $grey-40;
   line-height: 1.75;
-  font-size: var(--font-size-base);
+  font-size: fluid(18, 12);
   overflow-x: hidden;
+}
+
+.isLock {
+  overflow: hidden;
 }
 
 .h1,
@@ -66,14 +67,12 @@ body {
 }
 
 /// По умолчанию выравнивание по центру, но по макету, примерно в половине случаев необходимо выравнивание по левому краю. Поэтому решено сделать модификатор
-.h2--align_start,
-.h3--align_start {
+.h--align_start {
   text-align: start;
 }
 
 /// Класс для градиентных заголовков, обычно дублирующих название секции
 .h2 {
-  display: inline-block;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -99,15 +98,16 @@ body {
 .h5 {
   font-weight: 600;
   font-size: fluid(32, 20);
-  line-height: 143%;
+  line-height: 1.43;
 }
 
 .p {
   font-weight: 300;
 }
 
-/// Класс для кнопок
-.button {
+// QnA: есть вариант сделать этот класс просто button. Через only-child сделать для иконок. И через модификатор прозрачные
+/// Класс для кнопок с градиентным фоном
+.button--primary {
   font-weight: 700;
   text-transform: uppercase;
   color: $white;
@@ -136,6 +136,9 @@ body {
 }
 
 .button-outline--arrow-right {
+}
+
+.button--arrow-right {
   &::before {
     @include square(100%);
 

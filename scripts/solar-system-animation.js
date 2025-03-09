@@ -20,6 +20,7 @@ const planets = document.querySelectorAll(selectors.planets)
 const userButtons = document.querySelectorAll(
   selectors.userButtons
 )
+
 const userAvatars = document.querySelectorAll(
   selectors.userAvatars
 )
@@ -52,19 +53,20 @@ const animationUsers = {
  * Функция задает инлайновые стили width и height уникальные для каждого элемента массива orbits
  * (была еще мысль орбиты полностью генерировать через js, но мы же дефолтную верстку делаем, а не через шаблонизаторы)
  */
-function setOrbitSize() {
-  const orbitSizeBase = 500 // Минимальный размер орбиты
-  const container = document.querySelector('.testimonial__body') // Находим контейнер
-  const maxOrbitSize = container.clientHeight // Максимальный размер орбиты равен 100% высоты контейнера
-  const orbitsLength = orbits.length // Длина массива орбит
+function setOrbitSize(
+  orbitSizeBase = 500,
+  containerSelector = '.testimonial__body'
+) {
+  const container = document.querySelector(containerSelector)
+  const maxOrbitSize = container.clientHeight
+  const orbitsLength = orbits.length
   const orbitSizeStep =
-    (maxOrbitSize - orbitSizeBase) / (orbitsLength - 1) // Шаг между орбитами
+    (maxOrbitSize - orbitSizeBase) / (orbitsLength - 1)
 
   orbits.forEach((item, index) => {
     const sizeCurrentOrbit =
       orbitSizeBase + index * orbitSizeStep
 
-    // Проверяем, чтобы размер не превышал максимальный размер
     item.style.width = `${Math.min(
       sizeCurrentOrbit,
       maxOrbitSize

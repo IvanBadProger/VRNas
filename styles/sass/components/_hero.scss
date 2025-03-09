@@ -55,7 +55,6 @@
     &-video-player {
       z-index: 1;
 
-      // fix: bottom -750% ?
       @include media(mobile) {
         position: absolute;
         bottom: -750%;
