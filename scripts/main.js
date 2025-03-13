@@ -3,7 +3,7 @@ import { initSolarSystem } from './solar-system-animation.js'
 import { startCheckIconMorph } from './check-icons-animation.js'
 import { initPartners } from './partners.js'
 import { preloaderStart } from './preloader.js'
-import { initAccordions } from './drop-down-text.js'
+import { initAccordions } from './accordion.js'
 
 const animationNames = {
   solarSystem: 'solar-system',
@@ -79,4 +79,4 @@ observer.observe(animationTriggers.partners)
 
 initSlider()
 initAccordions()
-// preloaderStart()
+preloaderStart()
