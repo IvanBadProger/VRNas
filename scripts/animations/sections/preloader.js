@@ -1,3 +1,5 @@
+import { PRELOADER as PRELOADER_SELECTORS } from '../config/selectors.js'
+
 const CONFIG = {
   stroke: {
     duration: 2000,
@@ -36,9 +38,13 @@ const CONFIG = {
 class PreloaderAnimation {
   constructor() {
     this.elements = {
-      main: document.querySelector('main'),
-      preloader: document.querySelector('.preloader'),
-      paths: document.querySelectorAll('.preloader path'),
+      main: document.querySelector(PRELOADER_SELECTORS.main),
+      preloader: document.querySelector(
+        PRELOADER_SELECTORS.preloader
+      ),
+      paths: document.querySelectorAll(
+        PRELOADER_SELECTORS.paths
+      ),
     }
 
     this.initializePaths()
@@ -52,6 +58,7 @@ class PreloaderAnimation {
   initializePaths() {
     this.elements.paths.forEach((path) => {
       const length = path.getTotalLength()
+
       path.style.strokeDasharray = length
       path.style.strokeDashoffset = length
     })
@@ -62,10 +69,6 @@ class PreloaderAnimation {
    * @private
    */
   createAnimationConfigs() {
-    /**
-     * @private
-     * @property {Object} animations - Конфигурации анимаций
-     */
     this.animations = {
       stroke: this.createStrokeAnimation(),
       fill: this.createFillAnimation(),

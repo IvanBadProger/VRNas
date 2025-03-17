@@ -1,3 +1,6 @@
+import { PARTNERS as PARTNERS_SELECTORS } from '../config/selectors.js'
+import { SectionAnimation } from '../core/SectionAnimation.js'
+
 /** @constant {Object} CONFIG - Конфигурация анимации партнеров
  * @property {number} padding - Отступ от краев пути для размещения логотипов
  * @property {Object} centeringOffset - Смещение для центрирования элементов
@@ -19,37 +22,25 @@ const CONFIG = {
   },
 }
 
-/**
- * Класс управления анимацией и размещением логотипов партнеров
- * @class PartnersAnimation
- */
-class PartnersAnimation {
-  constructor() {
+class PartnersAnimation extends SectionAnimation {
+  constructor(animationName) {
+    super(animationName)
     this.elements = {
-      logos: document.querySelectorAll('.partners__item'),
+      logos: document.querySelectorAll(PARTNERS_SELECTORS.logos),
       circles: document.querySelectorAll(
-        '.partners__circles path'
+        PARTNERS_SELECTORS.circles
       ),
-      path: document.querySelector('#partners-path'),
-      svg: document.querySelector('.partners__circles'),
-      list: document.querySelector('.partners__list'),
+      path: document.querySelector(PARTNERS_SELECTORS.path),
+      svg: document.querySelector(PARTNERS_SELECTORS.svg),
+      list: document.querySelector(PARTNERS_SELECTORS.list),
     }
 
-    /**
-     * @private
-     * @property {Object} animations - Конфигурации анимаций
-     */
     this.animations = {
       circles: this.createCirclesAnimation(),
       logos: this.createLogosAnimation(),
     }
   }
 
-  /**
-   * Создает конфигурацию анимации кругов
-   * @private
-   * @returns {Object} Конфигурация анимации
-   */
   createCirclesAnimation() {
     return {
       targets: this.elements.circles,
@@ -60,11 +51,6 @@ class PartnersAnimation {
     }
   }
 
-  /**
-   * Создает конфигурацию анимации логотипов
-   * @private
-   * @returns {Object} Конфигурация анимации
-   */
   createLogosAnimation() {
     return {
       targets: this.elements.logos,
@@ -167,7 +153,6 @@ class PartnersAnimation {
   }
 }
 
-export function startPartners() {
-  const partnersAnimation = new PartnersAnimation()
-  partnersAnimation.start()
-}
+export const partnersAnimations = new PartnersAnimation(
+  'partners'
+)

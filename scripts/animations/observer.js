@@ -1,71 +1,14 @@
-import {
-  startPartners,
-  startCheckIconMorph,
-  startPreloader,
-  startSolarSystem,
-  startHeroAnimations,
-} from './sectionAnimations/index.js'
-import { VRAnimation } from './model/VRAnimation.js'
-
-/**
- * @param {VRAnimation[]} arr
- * @param {string} animationName
- */
-const searchAnimation = (arr, animationName) => {
-  return arr.find((item) => item.name === animationName)
-}
-
-/**
- * @param {{name: string, func: () => void}[]} arr
- * @returns {VRAnimation[]}
- */
-const initializeVRAnimations = (arr) => {
-  const VRAnimations = []
-
-  arr.forEach(({ name, func }) => {
-    VRAnimations.push(new VRAnimation(name, func))
-  })
-
-  return VRAnimations
-}
-
-const animations = [
-  { name: 'solar-system', func: startSolarSystem },
-  { name: 'check-icon-morph', func: startCheckIconMorph },
-  { name: 'partners', func: startPartners },
-  { name: 'hero', func: startHeroAnimations },
-]
-const VRAnimations = initializeVRAnimations(animations)
-
-function observerCallBack(entries, observer) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const animationName = entry.target.getAttribute(
-        'data-animation-name'
-      )
-
-      searchAnimation(VRAnimations, animationName)?.start()
-      observer.unobserve(entry.target)
-    }
-  })
-}
-
-const observerSettings = {
-  rootMargin: '100px',
-  threshold: 0.5,
-}
-
-const subscribe = (arr, observer) => {
-  arr.forEach((item) => {
-    observer.observe(item.trigger)
-  })
-}
+import { AnimationsObserver } from './core/AnimationsObserver.js'
+import { aboutUsAnimation } from './sections/about-us.js'
+import { heroAnimation } from './sections/hero.js'
+import { partnersAnimations } from './sections/partners.js'
+import { testimonialAnimations } from './sections/solar-system-animation.js'
 
 export function startObserver() {
-  const observer = new IntersectionObserver(
-    observerCallBack,
-    observerSettings
-  )
+  const observer = new AnimationsObserver()
 
-  subscribe(VRAnimations, observer)
+  observer.register(heroAnimation)
+  observer.register(aboutUsAnimation)
+  observer.register(testimonialAnimations)
+  observer.register(partnersAnimations)
 }

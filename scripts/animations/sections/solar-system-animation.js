@@ -1,3 +1,6 @@
+import { TESTIMONIAL as TESTIMONIAL_SELECTORS } from '../config/selectors.js'
+import { SectionAnimation } from '../core/SectionAnimation.js'
+
 /**
  * @constant {Object} CONFIG - Основные настройки анимации
  * @property {number} ROTATE_ANGLE - Угол поворота для анимации
@@ -16,39 +19,25 @@ const CONFIG = {
   POSITION_UPDATE_STEP: 0.02,
 }
 
-/**
- * @constant {Object} SELECTORS - DOM селекторы для элементов анимации
- * @property {string} orbit - Селектор орбит
- * @property {string} planet - Селектор планет
- * @property {string} userButton - Селектор кнопок пользователей
- * @property {string} userAvatar - Селектор аватаров пользователей
- * @property {string} container - Селектор контейнера анимации
- */
-const SELECTORS = {
-  orbit: '[data-solar-system=orbit]',
-  planet: '[data-solar-system=planet]',
-  userButton: '.testimoni__user',
-  userAvatar: '.testimoni__avatar',
-  container: '.testimonial__body',
-}
-
-/**
- * Класс управления анимацией солнечной системы
- * @class SolarSystemAnimation
- * @description Управляет анимацией и позиционированием элементов, имитирующих солнечную систему
- */
-class SolarSystemAnimation {
-  constructor() {
+class SolarSystemAnimation extends SectionAnimation {
+  constructor(animationName) {
+    super(animationName)
     this.elements = {
-      orbits: document.querySelectorAll(SELECTORS.orbit),
-      planets: document.querySelectorAll(SELECTORS.planet),
+      orbits: document.querySelectorAll(
+        TESTIMONIAL_SELECTORS.orbit
+      ),
+      planets: document.querySelectorAll(
+        TESTIMONIAL_SELECTORS.planet
+      ),
       userButtons: document.querySelectorAll(
-        SELECTORS.userButton
+        TESTIMONIAL_SELECTORS.userButton
       ),
       userAvatars: document.querySelectorAll(
-        SELECTORS.userAvatar
+        TESTIMONIAL_SELECTORS.userAvatar
       ),
-      container: document.querySelector(SELECTORS.container),
+      container: document.querySelector(
+        TESTIMONIAL_SELECTORS.container
+      ),
     }
 
     this.animations = {
@@ -183,20 +172,12 @@ class SolarSystemAnimation {
     }
   }
 
-  /**
-   * Обновляет позиции всех планет и пользователей
-   * @private
-   */
   updateAllPositions() {
     this.elements.planets.forEach((_, index) =>
       this.updatePosition(index)
     )
   }
 
-  /**
-   * Запускает анимацию солнечной системы
-   * @public
-   */
   start() {
     this.initOrbitSizes()
     anime(this.animations.planets)
@@ -204,12 +185,6 @@ class SolarSystemAnimation {
   }
 }
 
-/**
- * Инициализирует и запускает анимацию солнечной системы
- * @function initSolarSystem
- * @exports
- */
-export const startSolarSystem = () => {
-  const solarSystem = new SolarSystemAnimation()
-  solarSystem.start()
-}
+export const testimonialAnimations = new SolarSystemAnimation(
+  'testimonial'
+)
