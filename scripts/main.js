@@ -79,4 +79,4 @@ observer.observe(animationTriggers.partners)
 
 initSlider()
 initAccordions()
-preloaderStart()
+// preloaderStart()

@@ -1,16 +1,10 @@
 @use '../helpers' as *;
 
-.banner {
+.banner-fill {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     column-gap: rem(50);
-
-    background-color: $black-80;
-
-    border: 1px solid transparent;
-    border-image: $border-linear;
-
     padding: rem(42) rem(64) rem(53) rem(64);
 
     @include media(tablet) {
