@@ -1,0 +1,25 @@
+@use '../helpers' as *;
+
+.our-service {
+  display: flex;
+  justify-content: space-between;
+  gap: rem(270);
+  margin-bottom: rem(46);
+
+  @include media(tablet) {
+    flex-direction: column;
+    gap: rem(0);
+}
+
+  &__subtitle {
+    white-space: nowrap;
+  }
+
+  &__title {
+    white-space: nowrap;
+    @include media(tablet) {
+        display: flex;
+        margin-bottom: rem(12);
+    }
+  }
+}

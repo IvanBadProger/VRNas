@@ -68,6 +68,7 @@ body {
 
 /// По умолчанию выравнивание по центру, но по макету, примерно в половине случаев необходимо выравнивание по левому краю. Поэтому решено сделать модификатор
 .h--align_start {
+  display: inline-block;
   text-align: start;
 }
 
@@ -153,4 +154,11 @@ body {
 .text-white {
   color: $white;
   font-weight: 600;
+}
+
+// Класс для баннеров
+.banner {
+  background-color: $black-80;
+  border: 1px solid transparent;
+  border-image: $border-linear;
 }
