@@ -4,6 +4,7 @@ import { startCheckIconMorph } from './check-icons-animation.js'
 import { initPartners } from './partners.js'
 import { preloaderStart } from './preloader.js'
 import { initAccordions } from './accordion.js'
+import { initBannerTileAnimation } from './banner-tile-anima.js'
 
 const animationNames = {
   solarSystem: 'solar-system',
@@ -79,4 +80,5 @@ observer.observe(animationTriggers.partners)
 
 initSlider()
 initAccordions()
+initBannerTileAnimation()
 // preloaderStart()

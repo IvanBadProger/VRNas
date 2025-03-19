@@ -1093,6 +1093,7 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 16.875rem;
+  margin-bottom: 2.875rem;
 }
 @media (max-width: 1000px) {
   .our-service {
@@ -1116,9 +1117,7 @@ body {
 .banner-tile {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
   gap: 2.25rem;
-  margin-top: 2.875rem;
 }
 @media (max-width: 1000px) {
   .banner-tile {
@@ -1135,14 +1134,14 @@ body {
   overflow: hidden;
   transition-duration: 0.3s;
 }
-.banner-tile__content:nth-child(2), .banner-tile__content:nth-child(5) {
+.banner-tile__content:nth-child(3n+2) {
   transform: translateY(60px);
 }
-.banner-tile__content:nth-child(3), .banner-tile__content:nth-child(6) {
+.banner-tile__content:nth-child(3n) {
   transform: translateY(120px);
 }
 @media (max-width: 1000px) {
-  .banner-tile__content:nth-child(2), .banner-tile__content:nth-child(3), .banner-tile__content:nth-child(5), .banner-tile__content:nth-child(6) {
+  .banner-tile__content:nth-child(n) {
     transform: translateY(0px);
   }
 }

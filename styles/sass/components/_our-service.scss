@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   gap: rem(270);
+  margin-bottom: rem(46);
 
   @include media(tablet) {
     flex-direction: column;
