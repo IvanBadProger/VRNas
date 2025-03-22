@@ -1,0 +1,58 @@
+@use '../helpers' as *;
+
+.how-to-get {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: fluid(48, 32);
+
+  //Fix: сломанная градиент заливка у заголовка
+  //Если убрать display inline block, то ломается градиент,
+  //а если оставить, то заголовок не становится по центру
+  &__subtitle {
+    display: inline-block;
+  }
+
+  //QnA: Какие варианты есть, как можно было бы сделать текст на постере?
+  &__media-content {
+    position: relative;
+  }
+
+  &__video-tag {
+    position: absolute;
+    top: 50px;
+    left: 35px;
+
+    background-color: $grey-30;
+    border-radius: 15px;
+    padding: 2px 10px;
+
+    @include media (tablet) {
+      top: 20px;
+      left: 16px;
+    }
+  }
+
+  &__video-title {
+    position: absolute;
+    top: 90px;
+    left: 35px;
+
+    font-size: fluid(36, 20);
+
+    @include media (tablet) {
+      top: 58px;
+      left: 16px;
+    }
+  }
+
+  &__video-text {
+    font-weight: 500;
+    color: $white;
+  }
+
+  &__hidden {
+    display: none;
+  }
+}
